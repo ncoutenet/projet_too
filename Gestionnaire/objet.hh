@@ -1,7 +1,7 @@
 #include <string>
-#include <vector>
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 
 class Objet{
 public:
@@ -13,5 +13,4 @@ public:
 
   void exporter();
 private:
-  std::vector<std::string> _donnes;
 };
