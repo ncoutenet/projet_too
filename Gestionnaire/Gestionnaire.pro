@@ -16,9 +16,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    menu.cpp \
-    objet.cpp
+    objet.cpp \
+    gestionnaire.cpp
 
 HEADERS += \
-    menu.hh \
-    objet.hh
+    objet.hh \
+    gestionnaire.h
