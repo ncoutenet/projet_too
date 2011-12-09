@@ -10,7 +10,7 @@ public:
   void ajouter();
   void supprimer();
   void modifier();
-
+  void afficher();
   void exporter();
 private:
 };
