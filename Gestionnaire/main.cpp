@@ -1,6 +1,6 @@
 #include "gestionnaire.h"
 
-int main(int argc, char *argv[])
+int main()
 {
 Gestionnaire Bibliotheque;
 Bibliotheque.afficheMenu();
