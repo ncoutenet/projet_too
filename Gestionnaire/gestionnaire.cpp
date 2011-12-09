@@ -48,6 +48,7 @@ void Gestionnaire::afficheMenu()
         case Quitter:
             break;
         case AfficherDoc:
+            objet.afficher();
             break;
         case AjouterDoc:
             objet.ajouter();
