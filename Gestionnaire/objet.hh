@@ -9,7 +9,7 @@ public:
   void supprimer();
   void modifier();
 
-  void export();
+  void exporter();
 private:
-  vector<string> _donnes;
+  std::vector<std::string> _donnes;
 };

@@ -10,7 +10,17 @@ Gestionnaire::~Gestionnaire()
 
 void Gestionnaire::afficheMenu()
 {
-    int choix;
+    int iChoix;
+    enum LibraryAction{
+        Quitter,
+        AfficherDoc,
+        AjouterDoc,
+        SupprimerDoc,
+        TrierDoc,
+        Rechercher,
+        ExportDoc
+    };
+    LibraryAction choix;
       do{
         std::cout<<"--------------------------------------------"<<std::endl;
         std::cout<<"-                  MENU                    -"<<std::endl;
@@ -24,6 +34,33 @@ void Gestionnaire::afficheMenu()
         std::cout<<"-0)Quitter                                 -"<<std::endl;
         std::cout<<"--------------------------------------------"<<std::endl;
         std::cout<<"Votre choix : ";
-        std::cin>>choix;
-      }while (choix != 0)
+        std::cin>>iChoix;
+      }while ( (choix < 0) && (choix > 6) );
+//problème de conversion de l'int en LibraryChoix
+    choix = iChoix;
+
+    switch((int) choix)
+    {
+    case Quitter:
+        break;
+    case AfficherDoc:
+        break;
+    case AjouterDoc:
+        break;
+    case SupprimerDoc:
+        break;
+    case TrierDoc:
+        break;
+    case Rechercher:
+        break;
+    case ExportDoc:
+        break;
+    default:
+        std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
+        break;
+    }
+    if (choix != 0)
+    {
+        afficheMenu();
+    }
 }

@@ -1,5 +1,6 @@
 #ifndef GESTIONNAIRE_H
 #define GESTIONNAIRE_H
+#include <iostream>
 
 class Gestionnaire
 {

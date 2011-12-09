@@ -1,4 +1,3 @@
-#include <iostream>
 #include "gestionnaire.h"
 
 int main(int argc, char *argv[])
