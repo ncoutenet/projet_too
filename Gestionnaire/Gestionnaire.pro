@@ -16,9 +16,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    objet.cpp \
-    gestionnaire.cpp
+    gestionnaire.cpp \
+    livre.cpp \
+    document.cpp
 
 HEADERS += \
-    objet.hh \
-    gestionnaire.h
+    gestionnaire.h \
+    livre.h \
+    document.h
