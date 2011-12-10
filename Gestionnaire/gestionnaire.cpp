@@ -88,7 +88,12 @@ void Gestionnaire::ajouter()
     std::ofstream Ajout(file.c_str());
     if (Ajout)
     {
+        Ajout << "Titre: ";
         Ajout << name  <<std::endl;
+    }
+    else
+    {
+        std::cout<<"ERREUR: Impossible de créer le fichier."<<std::endl;
     }
 }
 
@@ -117,13 +122,13 @@ void Gestionnaire::modifier()
     std::cin>>name;
     std::cout<<std::endl;
 
-    file = " rm ../Elements/";
-    file += name;
-    file += ".txt";
-
     std::cout<<"Veuillez entrer le nom du nouveau element:";
     std::cin>>name;
     std::cout<<std::endl;
+
+    file = " rm ../Elements/";
+    file += name;
+    file += ".txt";
 
     file2 = "../Elements/";
     file2 += name;
@@ -133,7 +138,12 @@ void Gestionnaire::modifier()
     std::ofstream Ajout(file2.c_str());
     if (Ajout)
     {
+        Ajout << "Titre: ";
         Ajout << name  <<std::endl;
+    }
+    else
+    {
+        std::cout<<"ERREUR: Impossible de modifier le fichier."<<std::endl;
     }
 }
 
@@ -161,7 +171,7 @@ void Gestionnaire::afficher()
     }
     else
     {
-        std::cout<<"ERREUR: Impossible d'ouvrir le fichier en lecture."<<std::endl;
+        std::cout<<"ERREUR: Impossible d'afficher le fichier."<<std::endl;
     }
 
 }
@@ -197,7 +207,9 @@ void Gestionnaire::exporter()
             Ajout << "<meta name=\"description\" content=\"Objet\" />" <<std::endl;
             Ajout << "<meta name=\"keywords\" content=\"xhtml,internet,too\" />" <<std::endl;
             Ajout << "<meta name=\"author\" content=\"none\" />" <<std::endl;
-            Ajout << "<title>Objet</title>" <<std::endl;
+            Ajout << "<title>";
+            Ajout << name <<std::endl;
+            Ajout << "</title>" <<std::endl;
             Ajout << "</head>" <<std::endl;
             Ajout << "<body>" <<std::endl;
             while(getline(Expor, ligne))
@@ -210,7 +222,7 @@ void Gestionnaire::exporter()
     }
     else
     {
-        std::cout<<"ERREUR: Impossible d'ouvrir le fichier en lecture."<<std::endl;
+        std::cout<<"ERREUR: Impossible d'exporter le fichier en html."<<std::endl;
     }
 }
 
