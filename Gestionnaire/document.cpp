@@ -8,7 +8,6 @@ Document::Document()
 }
 Document::~Document()
 {
-
 }
 
 std::string Document::getTitle()
