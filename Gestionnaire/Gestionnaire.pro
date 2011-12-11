@@ -18,9 +18,15 @@ TEMPLATE = app
 SOURCES += main.cpp \
     gestionnaire.cpp \
     livre.cpp \
-    document.cpp
+    document.cpp \
+    bd.cpp \
+    manga.cpp \
+    comic.cpp
 
 HEADERS += \
     gestionnaire.h \
     livre.h \
-    document.h
+    document.h \
+    bd.h \
+    manga.h \
+    comic.h

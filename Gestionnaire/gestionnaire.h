@@ -4,6 +4,9 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
+#include <vector>
+
+#include "document.h"
 
 class Gestionnaire
 {
@@ -17,6 +20,7 @@ public:
     void afficher();
     void exporter();
 private:
+    std::vector<Document> _listeDoc;
 };
 
 #endif // GESTIONNAIRE_H

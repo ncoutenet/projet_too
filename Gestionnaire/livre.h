@@ -9,7 +9,6 @@ public:
     ~Livre();
     std::string getAuthor();
 protected:
-    std::string _titre;
     std::string _author;
 };
 
