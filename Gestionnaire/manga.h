@@ -8,6 +8,7 @@ public:
     Manga();
     ~Manga();
     std::string getType();
+    void ajouter();
 
 private:
     std::string _type;

@@ -7,3 +7,8 @@ Comic::Comic()
 Comic::~Comic()
 {
 }
+
+void Comic::ajouter()
+{
+
+}

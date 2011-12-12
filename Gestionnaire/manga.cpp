@@ -12,3 +12,8 @@ std::string Manga::getType()
 {
     return _type;
 }
+
+void Manga::ajouter()
+{
+
+}

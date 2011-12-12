@@ -76,7 +76,7 @@ void Gestionnaire::menuAjouter()
     enum addAction{
         retour,
         manga,
-        comic
+        bd
     };
     while (choix != 0)
     {
@@ -96,11 +96,11 @@ void Gestionnaire::menuAjouter()
             break;
         case manga:
             Manga myManga;
-            //myManga.ajouter();
+            myManga.ajouter();
             break;
-        case comic:
+        case bd:
             Comic myComic;
-            //myComic.ajouter();
+            myComic.ajouter();
             break;
         default:
             std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
