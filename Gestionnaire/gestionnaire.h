@@ -1,10 +1,5 @@
 #ifndef GESTIONNAIRE_H
 #define GESTIONNAIRE_H
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <cstdlib>
-#include <vector>
 
 #include "document.h"
 
@@ -14,9 +9,8 @@ public:
     Gestionnaire();
     ~Gestionnaire();
     void afficheMenu();
-    void ajouter();
+    void menuAjouter();
     void supprimer();
-    void modifier();
     void afficher();
     void exporter();
 private:

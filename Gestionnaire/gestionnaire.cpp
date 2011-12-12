@@ -39,7 +39,7 @@ void Gestionnaire::afficheMenu()
             std::cout<<"--------------------------------------------"<<std::endl;
             std::cout<<"Votre choix : ";
             std::cin>>choix;
-          }while ( (choix < 0) && (choix > 7) );
+          }while ( (choix < 0) || (choix > 7) );
 
         switch(choix)
         {
@@ -49,10 +49,8 @@ void Gestionnaire::afficheMenu()
             afficher();
             break;
         case AjouterDoc:
-            ajouter();
             break;
         case ModifierDoc:
-            modifier();
             break;
         case SupprimerDoc:
             supprimer();
@@ -72,31 +70,6 @@ void Gestionnaire::afficheMenu()
     }
 }
 
-void Gestionnaire::ajouter()
-{
-    std::string name, file;
-
-    std::cout<<"Ajout d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file = "../Elements/";
-    file += name;
-    file += ".txt";
-
-    std::ofstream Ajout(file.c_str());
-    if (Ajout)
-    {
-        Ajout << "Titre: ";
-        Ajout << name  <<std::endl;
-    }
-    else
-    {
-        std::cout<<"ERREUR: Impossible de créer le fichier."<<std::endl;
-    }
-}
-
 void Gestionnaire::supprimer()
 {
     std::string name, file;
@@ -111,40 +84,6 @@ void Gestionnaire::supprimer()
     file += ".txt";
 
     system(file.c_str());
-}
-
-void Gestionnaire::modifier()
-{
-    std::string name, file, file2;
-
-    std::cout<<"Modification d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element a modifier:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    std::cout<<"Veuillez entrer le nom du nouveau element:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file = " rm ../Elements/";
-    file += name;
-    file += ".txt";
-
-    file2 = "../Elements/";
-    file2 += name;
-    file2 += ".txt";
-
-    system(file.c_str());
-    std::ofstream Ajout(file2.c_str());
-    if (Ajout)
-    {
-        Ajout << "Titre: ";
-        Ajout << name  <<std::endl;
-    }
-    else
-    {
-        std::cout<<"ERREUR: Impossible de modifier le fichier."<<std::endl;
-    }
 }
 
 void Gestionnaire::afficher()
