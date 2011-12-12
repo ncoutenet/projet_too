@@ -11,6 +11,8 @@ class Document
 public:
     Document();
     ~Document();
+    void ajouter();
+    void modifier();
     std::string getTitle();
     protected:
     std::string _title;

@@ -20,7 +20,7 @@ void Document::ajouter()
 {
     std::string name, file;
 
-    std::cout<<"Ajout d'un element:"<<std::endl;
+    std::cout<<"Ajout d'un document:"<<std::endl;
     std::cout<<"Veuillez entrer le nom du document:";
     std::cin>>name;
     std::cout<<std::endl;
