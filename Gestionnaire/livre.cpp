@@ -46,7 +46,7 @@ void Livre::ajouter()
     }
 }
 
-void Document::modifier()
+void Livre::modifier()
 {
     std::string name, author, file, file2;
 

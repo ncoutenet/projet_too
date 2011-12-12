@@ -95,12 +95,8 @@ void Gestionnaire::menuAjouter()
         case retour:
             break;
         case manga:
-            Manga myManga;
-            myManga.ajouter();
             break;
         case bd:
-            Comic myComic;
-            myComic.ajouter();
             break;
         default:
             std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
@@ -188,3 +184,19 @@ void Gestionnaire::exporter()
     }
 }
 
+void Gestionnaire::supprimer()
+{
+    std::string name, file;
+
+    std::cout<<"Suppression du document:"<<std::endl;
+    std::cout<<"Veuillez entrer le nom du document a supprimer:";
+    std::cin>>name;
+    std::cout<<std::endl;
+
+    file = " rm ../Elements/";
+    file += name;
+    file += ".txt";
+
+    system(file.c_str());
+   std::cout<<"Fichier supprimé!"<<std::endl;
+}
