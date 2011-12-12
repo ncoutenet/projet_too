@@ -5,6 +5,8 @@
 #include <fstream>
 #include <cstdlib>
 #include <vector>
+#include <cstdio>
+#include <limits>
 
 class Document
 {

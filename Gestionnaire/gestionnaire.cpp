@@ -131,7 +131,9 @@ void Gestionnaire::afficher()
     {
         std::cout<<"ERREUR: Impossible d'afficher le fichier."<<std::endl;
     }
-
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
 void Gestionnaire::exporter()
@@ -182,6 +184,10 @@ void Gestionnaire::exporter()
     {
         std::cout<<"ERREUR: Impossible d'exporter le fichier en html."<<std::endl;
     }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
 void Gestionnaire::supprimer()
@@ -199,4 +205,8 @@ void Gestionnaire::supprimer()
 
     system(file.c_str());
    std::cout<<"Fichier supprimé!"<<std::endl;
+
+   std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+   getchar();
+   std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }

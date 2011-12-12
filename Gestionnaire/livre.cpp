@@ -44,6 +44,10 @@ void Livre::ajouter()
     {
         std::cout<<"ERREUR: Impossible de créer le fichier."<<std::endl;
     }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
 void Livre::modifier()
@@ -83,4 +87,8 @@ void Livre::modifier()
     {
         std::cout<<"ERREUR: Impossible de modifier le fichier."<<std::endl;
     }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }

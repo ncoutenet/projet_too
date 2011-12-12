@@ -1,7 +1,5 @@
 #ifndef GESTIONNAIRE_H
 #define GESTIONNAIRE_H
-#include <cstdio>
-#include <limits>
 
 #include "comic.h"
 #include "manga.h"
