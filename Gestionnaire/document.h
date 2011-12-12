@@ -1,7 +1,10 @@
 #ifndef DOCUMENT_H
 #define DOCUMENT_H
-#include <string>
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <cstdlib>
+#include <vector>
 
 class Document
 {

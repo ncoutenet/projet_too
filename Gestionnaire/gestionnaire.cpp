@@ -50,7 +50,6 @@ void Gestionnaire::afficheMenu()
             menuAjouter();
             break;
         case ModifierDoc:
-            modifier();
             break;
         case SupprimerDoc:
             supprimer();
@@ -107,40 +106,6 @@ void Gestionnaire::menuAjouter()
             std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
             break;
         }
-    }
-}
-
-void Gestionnaire::modifier()
-{
-    std::string name, file, file2;
-
-    std::cout<<"Modification d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element a modifier:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    std::cout<<"Veuillez entrer le nom du nouveau element:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file = " rm ../Elements/";
-    file += name;
-    file += ".txt";
-
-    file2 = "../Elements/";
-    file2 += name;
-    file2 += ".txt";
-
-    system(file.c_str());
-    std::ofstream Ajout(file2.c_str());
-    if (Ajout)
-    {
-        Ajout << "Titre: ";
-        Ajout << name  <<std::endl;
-    }
-    else
-    {
-        std::cout<<"ERREUR: Impossible de modifier le fichier."<<std::endl;
     }
 }
 

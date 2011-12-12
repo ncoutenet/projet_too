@@ -1,10 +1,5 @@
 #ifndef GESTIONNAIRE_H
 #define GESTIONNAIRE_H
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <cstdlib>
-#include <vector>
 #include <cstdio>
 #include <limits>
 
@@ -19,7 +14,6 @@ public:
     void afficheMenu();
     void menuAjouter();
     void supprimer();
-    void modifier();
     void afficher();
     void exporter();
 private:
