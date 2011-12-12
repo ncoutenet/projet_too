@@ -5,8 +5,11 @@
 #include <fstream>
 #include <cstdlib>
 #include <vector>
+#include <cstdio>
+#include <limits>
 
-#include "document.h"
+#include "comic.h"
+#include "manga.h"
 
 class Gestionnaire
 {
@@ -14,7 +17,7 @@ public:
     Gestionnaire();
     ~Gestionnaire();
     void afficheMenu();
-    void ajouter();
+    void menuAjouter();
     void supprimer();
     void modifier();
     void afficher();

@@ -24,22 +24,20 @@ void Gestionnaire::afficheMenu()
     };
     while (choix != 0)
     {
-          do{
-            std::cout<<"--------------------------------------------"<<std::endl;
-            std::cout<<"-                  MENU                    -"<<std::endl;
-            std::cout<<"--------------------------------------------"<<std::endl;
-            std::cout<<"-1)Afficher les documents                  -"<<std::endl;
-            std::cout<<"-2)Ajouter un document                     -"<<std::endl;
-            std::cout<<"-3)Modifier un document                    -"<<std::endl;
-            std::cout<<"-4)Supprimer un document                   -"<<std::endl;
-            std::cout<<"-5)Trier la liste des documents            -"<<std::endl;
-            std::cout<<"-6)Rechercher un document                  -"<<std::endl;
-            std::cout<<"-7)exporter la liste en version html       -"<<std::endl;
-            std::cout<<"-0)Quitter                                 -"<<std::endl;
-            std::cout<<"--------------------------------------------"<<std::endl;
-            std::cout<<"Votre choix : ";
-            std::cin>>choix;
-          }while ( (choix < 0) && (choix > 7) );
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-                  MENU                    -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-1)Afficher les documents                  -"<<std::endl;
+        std::cout<<"-2)Ajouter un document                     -"<<std::endl;
+        std::cout<<"-3)Modifier un document                    -"<<std::endl;
+        std::cout<<"-4)Supprimer un document                   -"<<std::endl;
+        std::cout<<"-5)Trier la liste des documents            -"<<std::endl;
+        std::cout<<"-6)Rechercher un document                  -"<<std::endl;
+        std::cout<<"-7)exporter la liste en version html       -"<<std::endl;
+        std::cout<<"-0)Quitter                                 -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"Votre choix : ";
+        std::cin>>choix;
 
         switch(choix)
         {
@@ -49,7 +47,7 @@ void Gestionnaire::afficheMenu()
             afficher();
             break;
         case AjouterDoc:
-            ajouter();
+            menuAjouter();
             break;
         case ModifierDoc:
             modifier();
@@ -72,45 +70,44 @@ void Gestionnaire::afficheMenu()
     }
 }
 
-void Gestionnaire::ajouter()
+void Gestionnaire::menuAjouter()
 {
     std::string name, file;
-
-    std::cout<<"Ajout d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file = "../Elements/";
-    file += name;
-    file += ".txt";
-
-    std::ofstream Ajout(file.c_str());
-    if (Ajout)
+    int choix;
+    enum addAction{
+        retour,
+        manga,
+        comic
+    };
+    while (choix != 0)
     {
-        Ajout << "Titre: ";
-        Ajout << name  <<std::endl;
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"-                  AJOUT                   -"<<std::endl;
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"-1)Ajouter un manga                        -"<<std::endl;
+            std::cout<<"-2)Ajouter un comic                        -"<<std::endl;
+            std::cout<<"-0)Retour                                  -"<<std::endl;
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"Votre choix : ";
+            std::cin>>choix;
+
+        switch(choix)
+        {
+        case retour:
+            break;
+        case manga:
+            Manga myManga;
+            //myManga.ajouter();
+            break;
+        case comic:
+            Comic myComic;
+            //myComic.ajouter();
+            break;
+        default:
+            std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
+            break;
+        }
     }
-    else
-    {
-        std::cout<<"ERREUR: Impossible de créer le fichier."<<std::endl;
-    }
-}
-
-void Gestionnaire::supprimer()
-{
-    std::string name, file;
-
-    std::cout<<"Suppression d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file = " rm ../Elements/";
-    file += name;
-    file += ".txt";
-
-    system(file.c_str());
 }
 
 void Gestionnaire::modifier()
