@@ -38,31 +38,42 @@ void Gestionnaire::afficheMenu()
         std::cout<<"--------------------------------------------"<<std::endl;
         std::cout<<"Votre choix : ";
         std::cin>>choix;
+        std::cout<<std::endl;
 
         switch(choix)
         {
         case Quitter:
             break;
         case AfficherDoc:
+            system("clear");
             afficher();
             break;
         case AjouterDoc:
+            system("clear");
             menuAjouter();
             break;
         case ModifierDoc:
+            system("clear");
             break;
         case SupprimerDoc:
+            system("clear");
             supprimer();
             break;
         case TrierDoc:
+            system("clear");
             break;
         case Rechercher:
+            system("clear");
             break;
         case ExportDoc:
+            system("clear");
             exporter();
             break;
         default:
             std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         }
         system("clear");
@@ -89,6 +100,7 @@ void Gestionnaire::menuAjouter()
             std::cout<<"--------------------------------------------"<<std::endl;
             std::cout<<"Votre choix : ";
             std::cin>>choix;
+            std::cout<<std::endl;
 
         switch(choix)
         {
