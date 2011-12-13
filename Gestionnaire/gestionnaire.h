@@ -5,6 +5,7 @@
 #include "manga.h"
 #include "article.hh"
 #include "roman.hh"
+#include <fstream>
 
 class Gestionnaire
 {
@@ -18,7 +19,14 @@ public:
     void exporter();
     void rechercher();
 private:
-    std::vector<Document> _listeDoc;
+    void _affMangas();
+    void _affComics();
+    void _affRomans();
+    void _affArticles();
+    std::vector<std::string> _listeMangas;
+    std::vector<std::string> _listeComics;
+    std::vector<std::string> _listeRomans;
+    std::vector<std::string> _listeArticles;
 };
 
 #endif // GESTIONNAIRE_H

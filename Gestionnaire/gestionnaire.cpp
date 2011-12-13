@@ -186,20 +186,91 @@ void Gestionnaire::afficher()
             system("clear");
             break;
         case manga:
-
+            _affMangas();
             system("clear");
             break;
         case comic:
+            _affComics();
             system("clear");
             break;
         case article:
+            _affArticles();
             system("clear");
             break;
         case roman:
+            _affRomans();
             system("clear");
             break;
         }
     }
+}
+
+void Gestionnaire::_affMangas()
+{
+    std::string affiche, ligne;
+    unsigned int i;
+    for (i = 0; i < _listeMangas.size(); i++)
+    {
+        affiche = "../Elements/";
+        affiche += _listeMangas.at(i);
+        affiche += ".txt";
+        std::ifstream lecture(affiche.c_str());
+
+        if(lecture)
+        {
+            while(getline(lecture, ligne))
+            {
+                std::cout<<ligne<<std::endl;
+            }
+        }
+        else
+        {
+            std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
+        }
+    }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Gestionnaire::_affComics()
+{
+    unsigned int i;
+    for (i = 0; i < _listeComics.size(); i++)
+    {
+
+    }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Gestionnaire::_affRomans()
+{
+    unsigned int i;
+    for (i = 0; i < _listeRomans.size(); i++)
+    {
+
+    }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Gestionnaire::_affArticles()
+{
+    unsigned int i;
+    for (i = 0; i < _listeArticles.size(); i++)
+    {
+
+    }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
 void Gestionnaire::rechercher()
