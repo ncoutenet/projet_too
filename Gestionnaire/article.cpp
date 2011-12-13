@@ -2,12 +2,6 @@
 
 Article::Article()
 {
-    std::cout<<"Veuillez entrer le theme : ";
-    std::cin>>_theme;
-    std::cout<<std::endl;
-    std::cout<<"Veuillez entrer la date de parution : ";
-    std::cin>>_dateParution;
-    std::cout<<std::endl;
 }
 
 Article::~ Article()
@@ -26,37 +20,25 @@ std::string Article::getDateParution()
 
 void Article::ajouter()
 {
-    std::string name, author, theme, dateParution, file;
+    std::string file;
 
     std::cout<<"Ajout d'un Article:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'article:";
-    std::cin>>name;
-    std::cout<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'auteur:";
-    std::cin>>author;
-    std::cout<<std::endl;
-    std::cout<<"Veuillez entrer le theme:";
-    std::cin>>theme;
-    std::cout<<std::endl;
-    std::cout<<"Veuillez entrer la date de parution:";
-    std::cin>>dateParution;
-    std::cout<<std::endl;
 
     file = "../Elements/";
-    file += name;
+    file += _title;
     file += ".txt";
 
     std::ofstream Ajout(file.c_str());
     if (Ajout)
     {
         Ajout << "Titre: ";
-        Ajout << name <<std::endl;
+        Ajout << _title <<std::endl;
         Ajout << "Auteur: ";
-        Ajout << author <<std::endl;
+        Ajout << _author <<std::endl;
         Ajout << "Theme: ";
-        Ajout << theme <<std::endl;
+        Ajout << _theme <<std::endl;
         Ajout << "Date de parution: ";
-        Ajout << dateParution <<std::endl;
+        Ajout << _dateParution <<std::endl;
     }
     else
     {
@@ -119,4 +101,23 @@ void Article::modifier()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Article::initialisation()
+{
+    std::cout<<"Veuillez entrer le titre de l'article' : ";
+    std::cin>>_title;
+    std::cout<<std::endl;
+
+    std::cout<<"Veuillez entrer l'auteur de l'article' : ";
+    std::cin>>_author;
+    std::cout<<std::endl;
+
+    std::cout<<"Veuillez entrer le theme de l'article' : ";
+    std::cin>>_theme;
+    std::cout<<std::endl;
+
+    std::cout<<"Veuillez entrer la date de parution : ";
+    std::cin>>_dateParution;
+    std::cout<<std::endl;
 }
