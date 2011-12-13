@@ -85,12 +85,12 @@ void Gestionnaire::afficheMenu()
 
 void Gestionnaire::menuAjouter()
 {
-    std::string name, file;
     Manga myManga;
     Comic myComic;
     Article myArticle;
     Roman myRoman;
-    int choix;
+
+    int choix=-4;
     enum addAction{
         retour,
         manga,
@@ -405,6 +405,7 @@ void Gestionnaire::exporter()
             while(getline(Expor, ligne))
             {
                 Ajout << ligne <<std::endl;
+                Ajout << "<br/>" <<std::endl;
             }
             Ajout << "</body>" <<std::endl;
             Ajout << "</html>" <<std::endl;
