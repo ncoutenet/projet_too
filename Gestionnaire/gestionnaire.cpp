@@ -84,6 +84,7 @@ void Gestionnaire::afficheMenu()
 void Gestionnaire::menuAjouter()
 {
     std::string name, file;
+    Manga leManga;
     int choix;
     enum addAction{
         retour,
@@ -108,7 +109,7 @@ void Gestionnaire::menuAjouter()
         case retour:
             break;
         case japon:
-            Manga leManga;
+            leManga.initialisation();
             leManga.ajouter();
             break;
         case bande:

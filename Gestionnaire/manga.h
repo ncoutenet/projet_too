@@ -10,6 +10,7 @@ public:
     std::string getType();    
     void ajouter();
     void modifier();
+    void initialisation();
 private:
     std::string _type;
 };

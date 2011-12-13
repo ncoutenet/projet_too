@@ -2,9 +2,6 @@
 
 Manga::Manga()
 {
-    std::cout<<"Veuillez entrer le type de manga : ";
-    std::cin>>_type;
-    std::cout<<std::endl;
 }
 
 Manga::~Manga()
@@ -91,4 +88,23 @@ void Manga::modifier()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Manga::initialisation()
+{
+    std::cout<<"Veuillez entrer le titre du manga : ";
+    std::cin>>_title;
+    std::cout<<std::endl;
+
+    std::cout<<"Veuillez entrer l'auteur du manga : ";
+    std::cin>>_author;
+    std::cout<<std::endl;
+
+    std::cout<<"Veuillez entrer l'éditeur du manga : ";
+    std::cin>>_editor;
+    std::cout<<std::endl;
+
+    std::cout<<"Veuillez entrer le type du manga : ";
+    std::cin>>_type;
+    std::cout<<std::endl;
 }
