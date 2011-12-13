@@ -14,11 +14,13 @@ SOURCES += main.cpp \
     bd.cpp \
     manga.cpp \
     comic.cpp \
-    article.cpp
+    article.cpp \
+    roman.cpp
 HEADERS += gestionnaire.h \
     livre.h \
     document.h \
     bd.h \
     manga.h \
     comic.h \
-    article.hh
+    article.hh \
+    roman.hh
