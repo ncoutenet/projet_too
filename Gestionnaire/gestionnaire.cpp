@@ -119,6 +119,54 @@ void Gestionnaire::menuAjouter()
 
 void Gestionnaire::afficher()
 {
+    int choix;
+    enum displayChoice
+    {
+        retour,
+        manga,
+        comic,
+        article,
+        roman
+    };
+
+    while (choix != 0)
+    {
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-                 AFFICHER                 -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-1)Manga                                   -"<<std::endl;
+        std::cout<<"-2)Comic                                   -"<<std::endl;
+        std::cout<<"-3)Article                                 -"<<std::endl;
+        std::cout<<"-4)Roman                                   -"<<std::endl;
+        std::cout<<"-0)Retour                                  -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"Votre choix : ";
+        std::cin>>choix;
+        std::cout<<std::endl;
+
+        switch (choix)
+        {
+        case retour:
+            system("clear");
+            break;
+        case manga:
+            system("clear");
+            break;
+        case comic:
+            system("clear");
+            break;
+        case article:
+            system("clear");
+            break;
+        case roman:
+            system("clear");
+            break;
+        }
+    }
+}
+
+void Gestionnaire::rechercher()
+{
     std::string name, file, ligne;
 
     std::cout<<"Affichage d'un element:"<<std::endl;

@@ -14,6 +14,7 @@ public:
     void supprimer();
     void afficher();
     void exporter();
+    void rechercher();
 private:
     std::vector<Document> _listeDoc;
 };
