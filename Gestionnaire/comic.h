@@ -7,6 +7,8 @@ class Comic : public BD
 public:
     Comic();
     ~Comic();
+    void ajouter();
+    void modifier();
     void initialisation();
 private:
 };
