@@ -84,12 +84,17 @@ void Gestionnaire::afficheMenu()
 void Gestionnaire::menuAjouter()
 {
     std::string name, file;
-    Manga leManga;
+    Manga myManga;
+    Comic myComic;
+    Article myArticle;
+    Roman myRoman;
     int choix;
     enum addAction{
         retour,
-        japon,
-        bande
+        manga,
+        comic,
+        roman,
+        article
     };
     while (choix != 0)
     {
@@ -98,6 +103,8 @@ void Gestionnaire::menuAjouter()
             std::cout<<"--------------------------------------------"<<std::endl;
             std::cout<<"-1)Ajouter un manga                        -"<<std::endl;
             std::cout<<"-2)Ajouter un comic                        -"<<std::endl;
+            std::cout<<"-3)Ajouter un roman                        -"<<std::endl;
+            std::cout<<"-4)Ajouter un article                      -"<<std::endl;
             std::cout<<"-0)Retour                                  -"<<std::endl;
             std::cout<<"--------------------------------------------"<<std::endl;
             std::cout<<"Votre choix : ";
@@ -108,11 +115,33 @@ void Gestionnaire::menuAjouter()
         {
         case retour:
             break;
-        case japon:
-            leManga.initialisation();
-            leManga.ajouter();
+        case manga:
+            myManga.initialisation();
+            myManga.ajouter();
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
-        case bande:
+        case comic:
+            myComic.initialisation();
+            myComic.ajouter();
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        case roman:
+            myRoman.initialisation();
+            myRoman.ajouter();
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        case article:
+            myArticle.initialisation();
+            myArticle.ajouter();
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         default:
             std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
@@ -157,6 +186,7 @@ void Gestionnaire::afficher()
             system("clear");
             break;
         case manga:
+
             system("clear");
             break;
         case comic:
