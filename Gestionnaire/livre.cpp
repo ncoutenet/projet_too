@@ -21,7 +21,7 @@ void Livre::ajouter()
     std::string name, author, file;
 
     std::cout<<"Ajout d'un livre:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom du document:";
+    std::cout<<"Veuillez entrer le nom du livre:";
     std::cin>>name;
     std::cout<<std::endl;
     std::cout<<"Veuillez entrer le nom de l'auteur:";
@@ -59,7 +59,7 @@ void Livre::modifier()
     std::cin>>name;
     std::cout<<std::endl;
 
-    std::cout<<"Veuillez entrer le nom du livre document:";
+    std::cout<<"Veuillez entrer le nom du livre:";
     std::cin>>name;
     std::cout<<std::endl;
     std::cout<<"Veuillez entrer le nom de l'auteur:";
