@@ -1,31 +1,45 @@
-#include "manga.h"
+#include "article.hh"
 
-Manga::Manga()
+Article::Article()
+{
+    std::cout<<"Veuillez entrer le theme : ";
+    std::cin>>_theme;
+    std::cout<<std::endl;
+    std::cout<<"Veuillez entrer la date de parution : ";
+    std::cin>>_dateParution;
+    std::cout<<std::endl;
+}
+
+Article::~ Article()
 {
 }
 
-Manga::~Manga()
+std::string Article::getTheme()
 {
+    return _theme;
 }
 
-std::string Manga::getType()
+std::string Article::getDateParution()
 {
-    return _type;
+    return _dateParution;
 }
 
-void Manga::ajouter()
+void Article::ajouter()
 {
-    std::string name, author, type, file;
+    std::string name, author, theme, dateParution, file;
 
-    std::cout<<"Ajout d'un manga:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom du manga:";
+    std::cout<<"Ajout d'un Article:"<<std::endl;
+    std::cout<<"Veuillez entrer le nom de l'article:";
     std::cin>>name;
     std::cout<<std::endl;
     std::cout<<"Veuillez entrer le nom de l'auteur:";
     std::cin>>author;
     std::cout<<std::endl;
-    std::cout<<"Veuillez entrer le type du manga:";
-    std::cin>>type;
+    std::cout<<"Veuillez entrer le theme:";
+    std::cin>>theme;
+    std::cout<<std::endl;
+    std::cout<<"Veuillez entrer la date de parution:";
+    std::cin>>dateParution;
     std::cout<<std::endl;
 
     file = "../Elements/";
@@ -39,8 +53,10 @@ void Manga::ajouter()
         Ajout << name <<std::endl;
         Ajout << "Auteur: ";
         Ajout << author <<std::endl;
-        Ajout << "Type: ";
-        Ajout << type <<std::endl;
+        Ajout << "Theme: ";
+        Ajout << theme <<std::endl;
+        Ajout << "Date de parution: ";
+        Ajout << dateParution <<std::endl;
     }
     else
     {
@@ -52,23 +68,26 @@ void Manga::ajouter()
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
-void Manga::modifier()
+void Article::modifier()
 {
-    std::string name, author, type,  file, file2;
+    std::string name, author, theme, dateParution, file, file2;
 
-    std::cout<<"Modification du manga:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom du manga a modifier:";
+    std::cout<<"Modification de l'article:"<<std::endl;
+    std::cout<<"Veuillez entrer le nom de l'article' a modifier:";
     std::cin>>name;
     std::cout<<std::endl;
 
-    std::cout<<"Veuillez entrer le nom du manga:";
+    std::cout<<"Veuillez entrer le nom de l'article:";
     std::cin>>name;
     std::cout<<std::endl;
     std::cout<<"Veuillez entrer le nom de l'auteur:";
     std::cin>>author;
     std::cout<<std::endl;
-    std::cout<<"Veuillez entrer le type du manga:";
-    std::cin>>type;
+    std::cout<<"Veuillez entrer le theme:";
+    std::cin>>theme;
+    std::cout<<std::endl;
+    std::cout<<"Veuillez entrer la date de parution:";
+    std::cin>>dateParution;
     std::cout<<std::endl;
 
     file = " rm ../Elements/";
@@ -87,8 +106,10 @@ void Manga::modifier()
         Ajout << name  <<std::endl;
         Ajout << "Auteur: ";
         Ajout << author <<std::endl;
-        Ajout << "Type: ";
-        Ajout << type <<std::endl;
+        Ajout << "Theme: ";
+        Ajout << theme <<std::endl;
+        Ajout << "Date de parution: ";
+        Ajout << dateParution <<std::endl;
     }
     else
     {
