@@ -13,8 +13,6 @@ class Document
 public:
     Document();
     virtual ~Document();
-    void ajouter();
-    void modifier();
     std::string getTitle();
 protected:
     std::string _title;
