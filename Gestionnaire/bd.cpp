@@ -2,9 +2,6 @@
 
 BD::BD()
 {
-    std::cout<<"Veuillez entrer l'éditeur de la BD : ";
-    std::cin>>_editor;
-    std::cout<<std::endl;
 }
 
 BD::~BD()
