@@ -16,7 +16,7 @@ public:
     void ajouter();
     void modifier();
     std::string getTitle();
-    protected:
+protected:
     std::string _title;
 };
 

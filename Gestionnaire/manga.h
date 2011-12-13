@@ -7,8 +7,9 @@ class Manga : public BD
 public:
     Manga();
     ~Manga();
-    std::string getType();
-
+    std::string getType();    
+    void ajouter();
+    void modifier();
 private:
     std::string _type;
 };

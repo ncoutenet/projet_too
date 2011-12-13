@@ -8,7 +8,6 @@ public:
     BD();
     ~BD();
     std::string getEditor();
-
 protected:
     std::string _editor;
 };
