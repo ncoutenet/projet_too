@@ -11,6 +11,7 @@ public:
     std::string getDateParution();
     void ajouter();
     void modifier();
+    void initialisation();
 protected:
     std::string _theme;
     std::string _dateParution;
