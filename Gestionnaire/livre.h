@@ -6,7 +6,7 @@ class Livre : public Document
 {
 public:
     Livre();
-    ~Livre();
+    virtual ~Livre();
     std::string getAuthor();
     void ajouter();
     void modifier();

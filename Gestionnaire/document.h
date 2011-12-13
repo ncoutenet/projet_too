@@ -12,7 +12,7 @@ class Document
 {
 public:
     Document();
-    ~Document();
+    virtual ~Document();
     void ajouter();
     void modifier();
     std::string getTitle();

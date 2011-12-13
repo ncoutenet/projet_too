@@ -6,7 +6,7 @@ class BD : public Livre
 {
 public:
     BD();
-    ~BD();
+    virtual ~BD();
     std::string getEditor();
 protected:
     std::string _editor;

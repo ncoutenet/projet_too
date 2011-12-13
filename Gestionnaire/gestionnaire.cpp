@@ -64,6 +64,7 @@ void Gestionnaire::afficheMenu()
             break;
         case Rechercher:
             system("clear");
+            rechercher();
             break;
         case ExportDoc:
             system("clear");
@@ -86,8 +87,8 @@ void Gestionnaire::menuAjouter()
     int choix;
     enum addAction{
         retour,
-        manga,
-        bd
+        japon,
+        bande
     };
     while (choix != 0)
     {
@@ -106,12 +107,17 @@ void Gestionnaire::menuAjouter()
         {
         case retour:
             break;
-        case manga:
+        case japon:
+            Manga leManga;
+            leManga.ajouter();
             break;
-        case bd:
+        case bande:
             break;
         default:
             std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         }
     }

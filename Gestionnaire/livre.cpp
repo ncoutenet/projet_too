@@ -18,27 +18,21 @@ std::string Livre::getAuthor()
 
 void Livre::ajouter()
 {
-    std::string name, author, file;
+    std::string file;
 
-    std::cout<<"Ajout d'un livre:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom du livre:";
-    std::cin>>name;
-    std::cout<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'auteur:";
-    std::cin>>author;
-    std::cout<<std::endl;
+    std::cout<<"Ajout du livre:"<<std::endl;
 
     file = "../Elements/";
-    file += name;
+    file += _title;
     file += ".txt";
 
     std::ofstream Ajout(file.c_str());
     if (Ajout)
     {
         Ajout << "Titre: ";
-        Ajout << name <<std::endl;
+        Ajout << _title <<std::endl;
         Ajout << "Auteur: ";
-        Ajout << author <<std::endl;
+        Ajout << _author <<std::endl;
     }
     else
     {

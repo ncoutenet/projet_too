@@ -3,6 +3,8 @@
 
 #include "comic.h"
 #include "manga.h"
+#include "article.hh"
+#include "roman.hh"
 
 class Gestionnaire
 {
