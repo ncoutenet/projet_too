@@ -5,7 +5,6 @@
 #include "manga.h"
 #include "article.hh"
 #include "roman.hh"
-#include <fstream>
 
 class Gestionnaire
 {
@@ -19,6 +18,7 @@ public:
     void exporter();
     void rechercher();
 private:
+    void initialisation();
     void _affMangas();
     void _affComics();
     void _affRomans();

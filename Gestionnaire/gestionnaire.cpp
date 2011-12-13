@@ -22,6 +22,8 @@ void Gestionnaire::afficheMenu()
         Rechercher,
         ExportDoc
     };
+
+    initialisation();
     while (choix != 0)
     {
         std::cout<<"--------------------------------------------"<<std::endl;
@@ -203,6 +205,66 @@ void Gestionnaire::afficher()
             break;
         }
     }
+}
+
+void Gestionnaire::initialisation()
+{
+    std::string ligne;
+    std::ifstream manga("../Sources/listMangas.txt");
+    if (manga)
+    {
+        while(getline(manga, ligne))
+        {
+            _listeMangas.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cout<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    manga.close();
+
+    std::ifstream comic("../Sources/listComics.txt");
+    if (comic)
+    {
+        while(getline(comic, ligne))
+        {
+            _listeComics.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cout<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    comic.close();
+
+    std::ifstream roman("../Sources/listRomans.txt");
+    if (roman)
+    {
+        while(getline(roman, ligne))
+        {
+            _listeRomans.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cout<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    roman.close();
+
+    std::ifstream article("../Sources/listComics.txt");
+    if (article)
+    {
+        while(getline(article, ligne))
+        {
+            _listeArticles.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cout<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    article.close();
 }
 
 void Gestionnaire::_affMangas()
