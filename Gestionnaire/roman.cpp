@@ -2,9 +2,6 @@
 
 Roman::Roman()
 {
-    std::cout<<"Veuillez entrer l'éditeur' : ";
-    std::cin>>_editor;
-    std::cout<<std::endl;
 }
 
 Roman::~ Roman()
@@ -92,4 +89,19 @@ void Roman::modifier()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Roman::initialisation()
+{
+    std::cout<<"Veuillez entrer le titre du roman : ";
+    std::cin>>_title;
+    std::cout<<std::endl;
+
+    std::cout<<"Veuillez entrer l'auteur du roman : ";
+    std::cin>>_author;
+    std::cout<<std::endl;
+
+    std::cout<<"Veuillez entrer l'éditeur' : ";
+    std::cin>>_editor;
+    std::cout<<std::endl;
 }

@@ -10,6 +10,7 @@ public:
     std::string getEditor();
     void ajouter();
     void modifier();
+    void initialisation();
 protected:
     std::string _editor;
 };
