@@ -8,8 +8,6 @@ public:
     Livre();
     virtual ~Livre();
     std::string getAuthor();
-    void ajouter();
-    void modifier();
 protected:
     std::string _author;
 };

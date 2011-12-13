@@ -108,8 +108,6 @@ void Gestionnaire::menuAjouter()
         case retour:
             break;
         case japon:
-            Manga leManga;
-            leManga.ajouter();
             break;
         case bande:
             break;
