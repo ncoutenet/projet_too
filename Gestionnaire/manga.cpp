@@ -29,6 +29,8 @@ void Manga::ajouter()
         Ajout << _title <<std::endl;
         Ajout << "Auteur: ";
         Ajout << _author <<std::endl;
+        Ajout << "Editeur: ";
+        Ajout << _editor<<std::endl;
         Ajout << "Type: ";
         Ajout << _type <<std::endl;
     }
@@ -44,7 +46,7 @@ void Manga::ajouter()
 
 void Manga::modifier()
 {
-    std::string name, author, type,  file, file2;
+    std::string name, author, editor, type,  file, file2;
 
     std::cout<<"Modification du manga:"<<std::endl;
     std::cout<<"Veuillez entrer le nom du manga a modifier:";
@@ -56,6 +58,9 @@ void Manga::modifier()
     std::cout<<std::endl;
     std::cout<<"Veuillez entrer le nom de l'auteur:";
     std::cin>>author;
+    std::cout<<std::endl;
+    std::cout<<"Veuillez entrer le nom de l'editeur:";
+    std::cin>>editor;
     std::cout<<std::endl;
     std::cout<<"Veuillez entrer le type du manga:";
     std::cin>>type;
@@ -77,6 +82,8 @@ void Manga::modifier()
         Ajout << name  <<std::endl;
         Ajout << "Auteur: ";
         Ajout << author <<std::endl;
+        Ajout << "Editeur: ";
+        Ajout << editor <<std::endl;
         Ajout << "Type: ";
         Ajout << type <<std::endl;
     }
