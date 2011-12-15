@@ -6,10 +6,9 @@ class Livre : public Document
 {
 public:
     Livre();
-    ~Livre();
+    virtual ~Livre();
     std::string getAuthor();
 protected:
-    std::string _titre;
     std::string _author;
 };
 

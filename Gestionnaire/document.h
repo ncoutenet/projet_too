@@ -1,15 +1,20 @@
 #ifndef DOCUMENT_H
 #define DOCUMENT_H
-#include <string>
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <cstdlib>
+#include <vector>
+#include <cstdio>
+#include <limits>
 
 class Document
 {
 public:
     Document();
-    ~Document();
+    virtual ~Document();
     std::string getTitle();
-    protected:
+protected:
     std::string _title;
 };
 

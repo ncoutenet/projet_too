@@ -22,122 +22,320 @@ void Gestionnaire::afficheMenu()
         Rechercher,
         ExportDoc
     };
+
+    initialisation();
     while (choix != 0)
     {
-          do{
-            std::cout<<"--------------------------------------------"<<std::endl;
-            std::cout<<"-                  MENU                    -"<<std::endl;
-            std::cout<<"--------------------------------------------"<<std::endl;
-            std::cout<<"-1)Afficher les documents                  -"<<std::endl;
-            std::cout<<"-2)Ajouter un document                     -"<<std::endl;
-            std::cout<<"-3)Modifier un document                    -"<<std::endl;
-            std::cout<<"-4)Supprimer un document                   -"<<std::endl;
-            std::cout<<"-5)Trier la liste des documents            -"<<std::endl;
-            std::cout<<"-6)Rechercher un document                  -"<<std::endl;
-            std::cout<<"-7)exporter la liste en version html       -"<<std::endl;
-            std::cout<<"-0)Quitter                                 -"<<std::endl;
-            std::cout<<"--------------------------------------------"<<std::endl;
-            std::cout<<"Votre choix : ";
-            std::cin>>choix;
-          }while ( (choix < 0) && (choix > 7) );
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-                  MENU                    -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-1)Afficher les documents                  -"<<std::endl;
+        std::cout<<"-2)Ajouter un document                     -"<<std::endl;
+        std::cout<<"-3)Modifier un document                    -"<<std::endl;
+        std::cout<<"-4)Supprimer un document                   -"<<std::endl;
+        std::cout<<"-5)Trier la liste des documents            -"<<std::endl;
+        std::cout<<"-6)Rechercher un document                  -"<<std::endl;
+        std::cout<<"-7)exporter la liste en version html       -"<<std::endl;
+        std::cout<<"-0)Quitter                                 -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"Votre choix : ";
+        std::cin>>choix;
+        std::cout<<std::endl;
 
         switch(choix)
         {
         case Quitter:
             break;
         case AfficherDoc:
+            system("clear");
             afficher();
             break;
         case AjouterDoc:
-            ajouter();
+            system("clear");
+            menuAjouter();
             break;
         case ModifierDoc:
-            modifier();
+            system("clear");
             break;
         case SupprimerDoc:
+            system("clear");
             supprimer();
             break;
         case TrierDoc:
+            system("clear");
             break;
         case Rechercher:
+            system("clear");
+            rechercher();
             break;
         case ExportDoc:
+            system("clear");
             exporter();
             break;
         default:
             std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         }
         system("clear");
     }
 }
 
-void Gestionnaire::ajouter()
+void Gestionnaire::menuAjouter()
 {
-    std::string name, file;
+    Manga myManga;
+    Comic myComic;
+    Article myArticle;
+    Roman myRoman;
 
-    std::cout<<"Ajout d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file = "../Elements/";
-    file += name;
-    file += ".txt";
-
-    std::ofstream Ajout(file.c_str());
-    if (Ajout)
+    int choix=-4;
+    enum addAction{
+        retour,
+        manga,
+        comic,
+        roman,
+        article
+    };
+    while (choix != 0)
     {
-        Ajout << name  <<std::endl;
-    }
-}
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"-                  AJOUT                   -"<<std::endl;
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"-1)Ajouter un manga                        -"<<std::endl;
+            std::cout<<"-2)Ajouter un comic                        -"<<std::endl;
+            std::cout<<"-3)Ajouter un roman                        -"<<std::endl;
+            std::cout<<"-4)Ajouter un article                      -"<<std::endl;
+            std::cout<<"-0)Retour                                  -"<<std::endl;
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"Votre choix : ";
+            std::cin>>choix;
+            std::cout<<std::endl;
 
-void Gestionnaire::supprimer()
-{
-    std::string name, file;
-
-    std::cout<<"Suppression d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file = " rm ../Elements/";
-    file += name;
-    file += ".txt";
-
-    system(file.c_str());
-}
-
-void Gestionnaire::modifier()
-{
-    std::string name, file, file2;
-
-    std::cout<<"Modification d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element a modifier:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file = " rm ../Elements/";
-    file += name;
-    file += ".txt";
-
-    std::cout<<"Veuillez entrer le nom du nouveau element:";
-    std::cin>>name;
-    std::cout<<std::endl;
-
-    file2 = "../Elements/";
-    file2 += name;
-    file2 += ".txt";
-
-    system(file.c_str());
-    std::ofstream Ajout(file2.c_str());
-    if (Ajout)
-    {
-        Ajout << name  <<std::endl;
+        switch(choix)
+        {
+        case retour:
+            break;
+        case manga:
+            myManga.initialisation();
+            myManga.ajouter();
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        case comic:
+            myComic.initialisation();
+            myComic.ajouter();
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        case roman:
+            myRoman.initialisation();
+            myRoman.ajouter();
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        case article:
+            myArticle.initialisation();
+            myArticle.ajouter();
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        default:
+            std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        }
     }
 }
 
 void Gestionnaire::afficher()
+{
+    int choix;
+    enum displayChoice
+    {
+        retour,
+        manga,
+        comic,
+        article,
+        roman
+    };
+
+    while (choix != 0)
+    {
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-                 AFFICHER                 -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-1)Manga                                   -"<<std::endl;
+        std::cout<<"-2)Comic                                   -"<<std::endl;
+        std::cout<<"-3)Article                                 -"<<std::endl;
+        std::cout<<"-4)Roman                                   -"<<std::endl;
+        std::cout<<"-0)Retour                                  -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"Votre choix : ";
+        std::cin>>choix;
+        std::cout<<std::endl;
+
+        switch (choix)
+        {
+        case retour:
+            system("clear");
+            break;
+        case manga:
+            _affMangas();
+            system("clear");
+            break;
+        case comic:
+            _affComics();
+            system("clear");
+            break;
+        case article:
+            _affArticles();
+            system("clear");
+            break;
+        case roman:
+            _affRomans();
+            system("clear");
+            break;
+        }
+    }
+}
+
+void Gestionnaire::initialisation()
+{
+    std::string ligne;
+    std::ifstream manga("../Sources/listMangas.txt");
+    if (manga)
+    {
+        while(getline(manga, ligne))
+        {
+            _listeMangas.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cout<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    manga.close();
+
+    std::ifstream comic("../Sources/listComics.txt");
+    if (comic)
+    {
+        while(getline(comic, ligne))
+        {
+            _listeComics.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cout<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    comic.close();
+
+    std::ifstream roman("../Sources/listRomans.txt");
+    if (roman)
+    {
+        while(getline(roman, ligne))
+        {
+            _listeRomans.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cout<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    roman.close();
+
+    std::ifstream article("../Sources/listComics.txt");
+    if (article)
+    {
+        while(getline(article, ligne))
+        {
+            _listeArticles.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cout<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    article.close();
+}
+
+void Gestionnaire::_affMangas()
+{
+    std::string affiche, ligne;
+    unsigned int i;
+    for (i = 0; i < _listeMangas.size(); i++)
+    {
+        affiche = "../Elements/";
+        affiche += _listeMangas.at(i);
+        affiche += ".txt";
+        std::ifstream lecture(affiche.c_str());
+
+        if(lecture)
+        {
+            while(getline(lecture, ligne))
+            {
+                std::cout<<ligne<<std::endl;
+            }
+        }
+        else
+        {
+            std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
+        }
+    }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Gestionnaire::_affComics()
+{
+    unsigned int i;
+    for (i = 0; i < _listeComics.size(); i++)
+    {
+
+    }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Gestionnaire::_affRomans()
+{
+    unsigned int i;
+    for (i = 0; i < _listeRomans.size(); i++)
+    {
+
+    }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Gestionnaire::_affArticles()
+{
+    unsigned int i;
+    for (i = 0; i < _listeArticles.size(); i++)
+    {
+
+    }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Gestionnaire::rechercher()
 {
     std::string name, file, ligne;
 
@@ -161,9 +359,11 @@ void Gestionnaire::afficher()
     }
     else
     {
-        std::cout<<"ERREUR: Impossible d'ouvrir le fichier en lecture."<<std::endl;
+        std::cout<<"ERREUR: Impossible d'afficher le fichier."<<std::endl;
     }
-
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
 void Gestionnaire::exporter()
@@ -197,12 +397,15 @@ void Gestionnaire::exporter()
             Ajout << "<meta name=\"description\" content=\"Objet\" />" <<std::endl;
             Ajout << "<meta name=\"keywords\" content=\"xhtml,internet,too\" />" <<std::endl;
             Ajout << "<meta name=\"author\" content=\"none\" />" <<std::endl;
-            Ajout << "<title>Objet</title>" <<std::endl;
+            Ajout << "<title>";
+            Ajout << name <<std::endl;
+            Ajout << "</title>" <<std::endl;
             Ajout << "</head>" <<std::endl;
             Ajout << "<body>" <<std::endl;
             while(getline(Expor, ligne))
             {
                 Ajout << ligne <<std::endl;
+                Ajout << "<br/>" <<std::endl;
             }
             Ajout << "</body>" <<std::endl;
             Ajout << "</html>" <<std::endl;
@@ -210,7 +413,31 @@ void Gestionnaire::exporter()
     }
     else
     {
-        std::cout<<"ERREUR: Impossible d'ouvrir le fichier en lecture."<<std::endl;
+        std::cout<<"ERREUR: Impossible d'exporter le fichier en html."<<std::endl;
     }
+
+    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+    getchar();
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+void Gestionnaire::supprimer()
+{
+    std::string name, file;
+
+    std::cout<<"Suppression du document:"<<std::endl;
+    std::cout<<"Veuillez entrer le nom du document a supprimer:";
+    std::cin>>name;
+    std::cout<<std::endl;
+
+    file = " rm ../Elements/";
+    file += name;
+    file += ".txt";
+
+    system(file.c_str());
+   std::cout<<"Fichier supprimé!"<<std::endl;
+
+   std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+   getchar();
+   std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
