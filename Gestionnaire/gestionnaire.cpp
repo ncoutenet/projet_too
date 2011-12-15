@@ -298,10 +298,26 @@ void Gestionnaire::_affMangas()
 
 void Gestionnaire::_affComics()
 {
+    std::string affiche, ligne;
     unsigned int i;
     for (i = 0; i < _listeComics.size(); i++)
     {
+        affiche = "../Elements/";
+        affiche += _listeComics.at(i);
+        affiche += ".txt";
+        std::ifstream lecture(affiche.c_str());
 
+        if (lecture)
+        {
+            while (getline(lecture, ligne))
+            {
+                std::cout<<ligne<<std::endl;
+            }
+        }
+        else
+        {
+            std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
+        }
     }
 
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
@@ -311,10 +327,26 @@ void Gestionnaire::_affComics()
 
 void Gestionnaire::_affRomans()
 {
+    std::string affiche, ligne;
     unsigned int i;
     for (i = 0; i < _listeRomans.size(); i++)
     {
+        affiche = "../Elements/";
+        affiche += _listeRomans.at(i);
+        affiche += ".txt";
+        std::ifstream lecture(affiche.c_str());
 
+        if (lecture)
+        {
+            while (getline(lecture, ligne))
+            {
+                std::cout<<ligne<<std::endl;
+            }
+        }
+        else
+        {
+            std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
+        }
     }
 
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
@@ -324,10 +356,26 @@ void Gestionnaire::_affRomans()
 
 void Gestionnaire::_affArticles()
 {
+    std::string affiche, ligne;
     unsigned int i;
     for (i = 0; i < _listeArticles.size(); i++)
     {
+        affiche = "../Elements/";
+        affiche += _listeArticles.at(i);
+        affiche += ".txt";
+        std::ifstream lecture(affiche.c_str());
 
+        if (lecture)
+        {
+            while (getline(lecture, ligne))
+            {
+                std::cout<<ligne<<std::endl;
+            }
+        }
+        else
+        {
+            std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
+        }
     }
 
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
