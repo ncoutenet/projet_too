@@ -557,20 +557,63 @@ void Gestionnaire::_sauvegarde()
 {
     unsigned int i;
     std::string ligne;
-    std::ofstream fichierArt("../Sources/listArticles.txt", std::ios::out | std::ios::trunc);
-//insérer les autres flux ici et les traiter comme pour celui ci dessus
-    if (fichierArt)
+    std::ofstream fichier("../Sources/listArticles.txt", std::ios::out | std::ios::trunc);
+    if (fichier)
     {
         for (i = 0; i < _listeArticles.size(); i++)
         {
             ligne = _listeArticles.at(i);
-            fichierArt << ligne << std::endl;
+            fichier << ligne << std::endl;
         }
-        fichierArt.close();
+        fichier.close();
     }
     else
     {
         std::cout<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
     }
 
+    fichier.open("../Sources/listRomans.txt", std::ios::out | std::ios::trunc);
+    if (fichier)
+    {
+        for (i = 0; i < _listeRomans.size(); i++)
+        {
+            ligne = _listeRomans.at(i);
+            fichier << ligne << std::endl;
+        }
+        fichier.close();
+    }
+    else
+    {
+        std::cout<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
+    }
+
+    fichier.open("../Sources/listComics.txt", std::ios::out | std::ios::trunc);
+    if (fichier)
+    {
+        for (i = 0; i < _listeComics.size(); i++)
+        {
+            ligne = _listeComics.at(i);
+            fichier << ligne << std::endl;
+        }
+        fichier.close();
+    }
+    else
+    {
+        std::cout<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
+    }
+
+    fichier.open("../Sources/listMangas.txt", std::ios::out | std::ios::trunc);
+    if (fichier)
+    {
+        for (i = 0; i < _listeMangas.size(); i++)
+        {
+            ligne = _listeMangas.at(i);
+            fichier << ligne << std::endl;
+        }
+        fichier.close();
+    }
+    else
+    {
+        std::cout<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
+    }
 }
