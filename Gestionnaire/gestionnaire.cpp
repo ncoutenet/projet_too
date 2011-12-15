@@ -473,8 +473,8 @@ void Gestionnaire::supprimer()
 {
     std::string name, file;
 
-    std::cout<<"Suppression du document:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom du document a supprimer:";
+    std::cout<<"Suppression d'un document:"<<std::endl;
+    std::cout<<"Veuillez entrer le nom du document à supprimer:";
     std::cin>>name;
     std::cout<<std::endl;
 
@@ -482,10 +482,72 @@ void Gestionnaire::supprimer()
     file += name;
     file += ".txt";
 
+    _majListe(name);
+
     system(file.c_str());
    std::cout<<"Fichier supprimé!"<<std::endl;
 
    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
    getchar();
    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+}
+
+void Gestionnaire::_majListe(std::string& n)
+{
+    unsigned int i = 0;
+    bool trouve = false;
+    while ( (i < _listeMangas.size()) && (!trouve) )
+    {
+        if (n == _listeMangas.at(i))
+        {
+            trouve = true;
+            _listeMangas.erase(_listeMangas.begin()+i);
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    i = 0;
+    while ( (i < _listeComics.size()) && (!trouve) )
+    {
+        if (n == _listeComics.at(i))
+        {
+            trouve = true;
+            _listeComics.erase(_listeComics.begin()+i);
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    i = 0;
+    while ( (i < _listeRomans.size()) && (!trouve) )
+    {
+        if (n == _listeRomans.at(i))
+        {
+            trouve = true;
+            _listeRomans.erase(_listeRomans.begin()+i);
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    i = 0;
+    while ( (i < _listeArticles.size()) && (!trouve) )
+    {
+        if (n == _listeArticles.at(i))
+        {
+            trouve = true;
+            _listeArticles.erase(_listeArticles.begin()+i);
+        }
+        else
+        {
+            i++;
+        }
+    }
 }

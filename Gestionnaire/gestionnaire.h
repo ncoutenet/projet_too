@@ -23,6 +23,7 @@ private:
     void _affComics();
     void _affRomans();
     void _affArticles();
+    void _majListe(std::string&);
     std::vector<std::string> _listeMangas;
     std::vector<std::string> _listeComics;
     std::vector<std::string> _listeRomans;
