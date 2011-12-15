@@ -18,7 +18,8 @@ public:
     void exporter();
     void rechercher();
 private:
-    void initialisation();
+    void _initialisation();
+    void _sauvegarde();
     void _affMangas();
     void _affComics();
     void _affRomans();

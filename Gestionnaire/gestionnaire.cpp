@@ -23,7 +23,7 @@ void Gestionnaire::afficheMenu()
         ExportDoc
     };
 
-    initialisation();
+    _initialisation();
     while (choix != 0)
     {
         std::cout<<"--------------------------------------------"<<std::endl;
@@ -45,6 +45,7 @@ void Gestionnaire::afficheMenu()
         switch(choix)
         {
         case Quitter:
+            _sauvegarde();
             break;
         case AfficherDoc:
             system("clear");
@@ -207,7 +208,7 @@ void Gestionnaire::afficher()
     }
 }
 
-void Gestionnaire::initialisation()
+void Gestionnaire::_initialisation()
 {
     std::string ligne;
     std::ifstream manga("../Sources/listMangas.txt");
@@ -550,4 +551,26 @@ void Gestionnaire::_majListe(std::string& n)
             i++;
         }
     }
+}
+
+void Gestionnaire::_sauvegarde()
+{
+    unsigned int i;
+    std::string ligne;
+    std::ofstream fichierArt("../Sources/listArticles.txt", std::ios::out | std::ios::trunc);
+//insérer les autres flux ici et les traiter comme pour celui ci dessus
+    if (fichierArt)
+    {
+        for (i = 0; i < _listeArticles.size(); i++)
+        {
+            ligne = _listeArticles.at(i);
+            fichierArt << ligne << std::endl;
+        }
+        fichierArt.close();
+    }
+    else
+    {
+        std::cout<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
+    }
+
 }
