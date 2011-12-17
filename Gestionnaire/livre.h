@@ -2,6 +2,8 @@
 #define LIVRE_H
 #include "document.h"
 
+///class Livre, inheriting of class Document.
+
 class Livre : public Document
 {
 public:

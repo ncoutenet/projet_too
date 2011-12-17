@@ -2,6 +2,8 @@
 #define ARTICLE_HH
 #include "livre.h"
 
+///class Article, inheriting of class Livre.
+
 class Article : public Livre
 {
 public:

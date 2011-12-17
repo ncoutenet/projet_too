@@ -8,11 +8,13 @@ Manga::~Manga()
 {
 }
 
+///for having type who is protected
 std::string Manga::getType()
 {
     return _type;
 }
 
+///for adding a new Manga
 std::string Manga::ajouter()
 {
     std::string file;
@@ -22,6 +24,7 @@ std::string Manga::ajouter()
     file += _title;
     file += ".txt";
 
+    ///open the file, and purge it if he is not empty
     std::ofstream Ajout(file.c_str());
     if (Ajout)
     {
@@ -46,6 +49,7 @@ std::string Manga::ajouter()
     return _title;
 }
 
+///for modifying a Manga
 std::string Manga::modifier()
 {
     int i=0;
@@ -61,6 +65,7 @@ std::string Manga::modifier()
     file += name;
     file += ".txt";
 
+    ///for reading the last values
     std::ifstream lecture(file.c_str());
     if (lecture)
     {
@@ -68,10 +73,12 @@ std::string Manga::modifier()
         lecture >> buffer;        lecture >> _author;
         lecture >> buffer;        lecture >> _editor;
         lecture >> buffer;        lecture >> _type;
-        lecture.seekg(0, std::ios::beg);
 
+        ///for puting the cursor at the beginning of the file
+        lecture.seekg(0, std::ios::beg);
         while (i<4)
         {
+            ///for asking if we modify a value
             getline(lecture, buffer);
             do
             {
@@ -79,6 +86,7 @@ std::string Manga::modifier()
                 std::cout<< "Voulez-vous modifier cette ligne? [y/n]" <<std::endl;
                 std::cin>>choix;
             } while( (choix != 'y') && (choix != 'Y') && (choix != 'n') && (choix != 'N') );
+            ///if modify, ask the new value
             if ( (choix == 'y') || (choix == 'Y') )
             {
                 std::cout<< "Veuillez entrer la nouvelle donnée:" <<std::endl;
@@ -97,6 +105,7 @@ std::string Manga::modifier()
             }
             i++;
         }
+        ///call of ajouter(); for reducing the code
         ajouter();
     }
     else
@@ -111,6 +120,7 @@ std::string Manga::modifier()
     return name;
 }
 
+///for initialising an Article
 void Manga::initialisation()
 {
     std::cout<<"Veuillez entrer le titre du manga (Espaces Non Admis) : ";

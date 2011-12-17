@@ -8,11 +8,13 @@ Roman::~ Roman()
 {
 }
 
+///for having theme who is protected
 std::string Roman::getEditor()
 {
     return _editor;
 }
 
+///for adding a new Roman
 std::string Roman::ajouter()
 {
     std::string file;
@@ -23,6 +25,7 @@ std::string Roman::ajouter()
     file += _title;
     file += ".txt";
 
+    ///open the file, and purge it if he is not empty
     std::ofstream Ajout(file.c_str());
     if (Ajout)
     {
@@ -45,6 +48,7 @@ std::string Roman::ajouter()
     return _title;
 }
 
+///for modifying a Roman
 std::string Roman::modifier()
 {
     int i=0;
@@ -60,16 +64,19 @@ std::string Roman::modifier()
     file += name;
     file += ".txt";
 
+    ///for reading the last values
     std::ifstream lecture(file.c_str());
     if (lecture)
     {
         lecture >> buffer;        lecture >> _title;
         lecture >> buffer;        lecture >> _author;
         lecture >> buffer;        lecture >> _editor;
-        lecture.seekg(0, std::ios::beg);
 
+        ///for puting the cursor at the beginning of the file
+        lecture.seekg(0, std::ios::beg);
         while (i<3)
         {
+            ///for asking if we modify a value
             getline(lecture, buffer);
             do
             {
@@ -77,6 +84,7 @@ std::string Roman::modifier()
                 std::cout<< "Voulez-vous modifier cette ligne? [y/n]" <<std::endl;
                 std::cin>>choix;
             } while( (choix != 'y') && (choix != 'Y') && (choix != 'n') && (choix != 'N') );
+            ///if modify, ask the new value
             if ( (choix == 'y') || (choix == 'Y') )
             {
                 std::cout<< "Veuillez entrer la nouvelle donnée:" <<std::endl;
@@ -93,6 +101,7 @@ std::string Roman::modifier()
             }
             i++;
         }
+        ///call of ajouter(); for reducing the code
         ajouter();
     }
     else
@@ -107,6 +116,7 @@ std::string Roman::modifier()
     return name;
 }
 
+///for initialising a Roman
 void Roman::initialisation()
 {
     std::cout<<"Veuillez entrer le titre du roman (Espaces Non Admis) : ";
