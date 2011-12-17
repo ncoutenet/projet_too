@@ -810,7 +810,8 @@ void Gestionnaire::menuTrier()
 void Gestionnaire::_sortTitle()
 {
     int i, j;
-    int nbmax = _listeMangas.size(), nbtri, pmin;
+    int nbmax, nbtri, pmin;
+    nbmax = _listeMangas.size();
     nbtri = nbmax;
 
     for (i = 0; i < nbtri; i++)
@@ -825,6 +826,7 @@ void Gestionnaire::_sortTitle()
         }
         _listeMangas.push_back(_listeMangas.at(pmin));
         _listeMangas.erase(_listeMangas.begin()+pmin);
+        nbmax--;
     }
 
     nbmax = _listeComics.size();
@@ -842,6 +844,7 @@ void Gestionnaire::_sortTitle()
         }
         _listeComics.push_back(_listeComics.at(pmin));
         _listeComics.erase(_listeComics.begin()+pmin);
+        nbmax--;
     }
 
     nbmax = _listeRomans.size();
@@ -859,6 +862,7 @@ void Gestionnaire::_sortTitle()
         }
         _listeRomans.push_back(_listeRomans.at(pmin));
         _listeRomans.erase(_listeRomans.begin()+pmin);
+        nbmax--;
     }
 
     nbmax = _listeArticles.size();
@@ -876,6 +880,7 @@ void Gestionnaire::_sortTitle()
         }
         _listeArticles.push_back(_listeArticles.at(pmin));
         _listeArticles.erase(_listeArticles.begin()+pmin);
+        nbmax--;
     }
 }
 
@@ -907,6 +912,7 @@ void Gestionnaire::_sortAuthors()
         _listeMangas.erase(_listeMangas.begin()+pmin);
         autMang.push_back(autMang.at(pmin));
         autMang.erase(autMang.begin()+pmin);
+        nbmax--;
     }
 
     nbmax = autCom.size();
@@ -926,6 +932,7 @@ void Gestionnaire::_sortAuthors()
         _listeComics.erase(_listeComics.begin()+pmin);
         autCom.push_back(autCom.at(pmin));
         autCom.erase(autCom.begin()+pmin);
+        nbmax--;
     }
 
     nbmax = autRom.size();
@@ -945,6 +952,7 @@ void Gestionnaire::_sortAuthors()
         _listeRomans.erase(_listeRomans.begin()+pmin);
         autRom.push_back(autRom.at(pmin));
         autRom.erase(autRom.begin()+pmin);
+        nbmax--;
     }
 
     nbmax = autArt.size();
@@ -964,6 +972,7 @@ void Gestionnaire::_sortAuthors()
         _listeArticles.erase(_listeArticles.begin()+pmin);
         autArt.push_back(autArt.at(pmin));
         autArt.erase(autArt.begin()+pmin);
+        nbmax--;
     }
 }
 
@@ -988,7 +997,7 @@ std::vector<std::string> Gestionnaire::_initAuthors(char nom)
             fichier >> buffer;
             fichier >> buffer;
             vect.push_back(buffer);
-
+            fichier.close();
         }
     }
     else if (nom == 'C')
@@ -1004,7 +1013,7 @@ std::vector<std::string> Gestionnaire::_initAuthors(char nom)
             fichier >> buffer;
             fichier >> buffer;
             vect.push_back(buffer);
-
+            fichier.close();
         }
     }
     else if (nom == 'R')
@@ -1020,7 +1029,7 @@ std::vector<std::string> Gestionnaire::_initAuthors(char nom)
             fichier >> buffer;
             fichier >> buffer;
             vect.push_back(buffer);
-
+            fichier.close();
         }
     }
     else
@@ -1036,7 +1045,7 @@ std::vector<std::string> Gestionnaire::_initAuthors(char nom)
             fichier >> buffer;
             fichier >> buffer;
             vect.push_back(buffer);
-
+            fichier.close();
         }
     }
     return vect;
