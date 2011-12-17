@@ -57,6 +57,7 @@ void Gestionnaire::afficheMenu()
             break;
         case ModifierDoc:
             system("clear");
+            menuModif();
             break;
         case SupprimerDoc:
             system("clear");
@@ -678,4 +679,73 @@ void Gestionnaire::_sauvegarde()
     {
         std::cout<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
     }
+}
+
+void Gestionnaire::menuModif()
+{
+    Manga myManga;
+    Comic myComic;
+    Roman myRoman;
+    Article myArticle;
+    int choix;
+    std::string old;
+
+    while (choix != 0)
+    {
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"-                  MODIFIER                -"<<std::endl;
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"-1)Modifier un manga                       -"<<std::endl;
+            std::cout<<"-2)Modifier un comic                       -"<<std::endl;
+            std::cout<<"-3)Modifier un roman                       -"<<std::endl;
+            std::cout<<"-4)Modifier un article                     -"<<std::endl;
+            std::cout<<"-0)Retour                                  -"<<std::endl;
+            std::cout<<"--------------------------------------------"<<std::endl;
+            std::cout<<"Votre choix : ";
+            std::cin>>choix;
+            std::cout<<std::endl;
+
+        switch(choix)
+        {
+        case retour:
+            break;
+        case manga:
+            old = myManga.modifier();
+            _listeMangas.push_back(myManga.getTitle());
+            _majListe(old);
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        case comic:
+            old = myComic.modifier();
+            _listeComics.push_back(myComic.getTitle());
+            _majListe(old);
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        case roman:
+            old = myRoman.modifier();
+            _listeRomans.push_back(myRoman.getTitle());
+            _majListe(old);
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        case article:
+            old = myArticle.modifier();
+            _listeArticles.push_back(myArticle.getTitle());
+            _majListe(old);
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        default:
+            std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
+            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+            getchar();
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            break;
+        }
 }

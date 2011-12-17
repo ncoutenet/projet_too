@@ -13,6 +13,7 @@ public:
     ~Gestionnaire();
     void afficheMenu();
     void menuAjouter();
+    void menuModif();
     void supprimer();
     void afficher();
     void exporter();
