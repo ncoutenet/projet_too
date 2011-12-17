@@ -65,6 +65,7 @@ void Gestionnaire::afficheMenu()
             break;
         case TrierDoc:
             system("clear");
+            menuTrier();
             break;
         case Rechercher:
             system("clear");
@@ -122,30 +123,18 @@ void Gestionnaire::menuAjouter()
         case manga:
             myManga.initialisation();
             _listeMangas.push_back(myManga.ajouter());
-            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
-            getchar();
-            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         case comic:
             myComic.initialisation();
             _listeComics.push_back(myComic.ajouter());
-            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
-            getchar();
-            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         case roman:
             myRoman.initialisation();
             _listeRomans.push_back(myRoman.ajouter());
-            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
-            getchar();
-            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         case article:
             myArticle.initialisation();
             _listeArticles.push_back(myArticle.ajouter());
-            std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
-            getchar();
-            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         default:
             std::cout<<"Erreur de saisie, veuillez taper la position de l'action à réaliser."<<std::endl;
@@ -154,6 +143,7 @@ void Gestionnaire::menuAjouter()
             std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         }
+        system("clear");
     }
 }
 
@@ -206,6 +196,7 @@ void Gestionnaire::afficher()
             system("clear");
             break;
         }
+        system("clear");
     }
 }
 
@@ -254,7 +245,7 @@ void Gestionnaire::_initialisation()
     }
     roman.close();
 
-    std::ifstream article("../Sources/listComics.txt");
+    std::ifstream article("../Sources/listArticles.txt");
     if (article)
     {
         while(getline(article, ligne))
@@ -291,6 +282,7 @@ void Gestionnaire::_affMangas()
         {
             std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
         }
+        std::cout<<std::endl;
     }
 
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
@@ -320,6 +312,7 @@ void Gestionnaire::_affComics()
         {
             std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
         }
+        std::cout<<std::endl;
     }
 
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
@@ -349,6 +342,7 @@ void Gestionnaire::_affRomans()
         {
             std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
         }
+        std::cout<<std::endl;
     }
 
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
@@ -378,6 +372,7 @@ void Gestionnaire::_affArticles()
         {
             std::cout<<"Erreur: impossible d'ouvrir le fichier!"<<std::endl;
         }
+        std::cout<<std::endl;
     }
 
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
@@ -409,10 +404,7 @@ void Gestionnaire::rechercher()
         }
     }
 
-    if (!trouve)
-    {
-        i = 0;
-    }
+    i = 0;
 
     while ( (i < _listeComics.size()) && (!trouve) )
     {
@@ -427,10 +419,7 @@ void Gestionnaire::rechercher()
         }
     }
 
-    if (!trouve)
-    {
-        i = 0;
-    }
+    i = 0;
 
     while ( (i < _listeRomans.size()) && (!trouve) )
     {
@@ -445,10 +434,7 @@ void Gestionnaire::rechercher()
         }
     }
 
-    if (!trouve)
-    {
-        i = 0;
-    }
+    i = 0;
 
     while ( (i < _listeArticles.size()) && (!trouve) )
     {
@@ -496,28 +482,28 @@ void Gestionnaire::exporter()
         Ajout << "<title>Liste des éléments:</title>" <<std::endl;
         Ajout << "</head>" <<std::endl;
         Ajout << "<body>" <<std::endl;
-        Ajout << "<h1> Mangas: <br/>" <<std::endl;
+        Ajout << "<h1> Mangas: </h1><br/>" <<std::endl;
         std::ifstream manga("../Sources/listMangas.txt");
         while(getline(manga, ligne))
         {
             Ajout << ligne <<std::endl;
             Ajout << "<br/>" <<std::endl;
         }
-        Ajout << "<h1> Comics: <br/>" <<std::endl;
+        Ajout << "<h1> Comics: </h1><br/>" <<std::endl;
         std::ifstream comic("../Sources/listComics.txt");
         while(getline(comic, ligne))
         {
             Ajout << ligne <<std::endl;
             Ajout << "<br/>" <<std::endl;
         }
-        Ajout << "<h1> Romans: <br/>" <<std::endl;
+        Ajout << "<h1> Romans: </h1><br/>" <<std::endl;
         std::ifstream roman("../Sources/listRomans.txt");
         while(getline(roman, ligne))
         {
             Ajout << ligne <<std::endl;
             Ajout << "<br/>" <<std::endl;
         }
-        Ajout << "<h1> Articles: <br/>" <<std::endl;
+        Ajout << "<h1> Articles: </h1><br/>" <<std::endl;
         std::ifstream article("../Sources/listArticles.txt");
         while(getline(article, ligne))
         {
@@ -614,6 +600,7 @@ void Gestionnaire::_majListe(std::string& n)
             i++;
         }
     }
+    _sauvegarde();
 }
 
 void Gestionnaire::_sauvegarde()

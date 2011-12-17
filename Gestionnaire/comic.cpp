@@ -82,11 +82,13 @@ std::string Comic::modifier()
             {
                 std::cout<< "Veuillez entrer la nouvelle donnée:" <<std::endl;
                 std::cin>>buffer;
-                suppr = "rm ";
-                suppr += file;
-                system(suppr.c_str());
                 if (i == 0)
+                {
                     _title = buffer;
+                    suppr = "rm ";
+                    suppr += file;
+                    system(suppr.c_str());
+                }
                 if (i == 1)
                     _author = buffer;
                 if (i == 2)
@@ -100,12 +102,10 @@ std::string Comic::modifier()
     else
     {
         std::cout<<"ERREUR: Impossible de modifier le fichier."<<std::endl;
+        std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+        getchar();
+        std::cin.ignore(std::numeric_limits<int>::max(), '\n');
     }
-
-    std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
-    getchar();
-    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
-
     return name;
 }
 
