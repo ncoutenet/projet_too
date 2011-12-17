@@ -687,8 +687,16 @@ void Gestionnaire::menuModif()
     Comic myComic;
     Roman myRoman;
     Article myArticle;
-    int choix;
+    int choix = -1;
     std::string old;
+
+    enum modifAction{
+        retour,
+        manga,
+        comic,
+        roman,
+        article
+    };
 
     while (choix != 0)
     {
