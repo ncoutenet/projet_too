@@ -1,10 +1,12 @@
 #ifndef GESTIONNAIRE_H
 #define GESTIONNAIRE_H
 
-#include "comic.h"
-#include "manga.h"
-#include "article.hh"
-#include "roman.hh"
+#include "comic.h" ///for including comic's class
+#include "manga.h" ///for including manga's class
+#include "article.hh" ///for including article's class
+#include "roman.hh" ///for including novel's class
+
+///class Gestionnaire is used for managing all the documents
 
 class Gestionnaire
 {

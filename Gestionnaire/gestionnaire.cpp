@@ -9,6 +9,7 @@ Gestionnaire::~Gestionnaire()
 {
 }
 
+///function afficheMenu() shows a menu for choosing what the user wants to do.
 void Gestionnaire::afficheMenu()
 {
     int choix;
@@ -86,6 +87,7 @@ void Gestionnaire::afficheMenu()
     }
 }
 
+///function menuAjouter() for the choice of the document's type
 void Gestionnaire::menuAjouter()
 {
     Manga myManga;
@@ -147,6 +149,7 @@ void Gestionnaire::menuAjouter()
     }
 }
 
+///function afficher() for show the documents by types
 void Gestionnaire::afficher()
 {
     int choix;
@@ -260,6 +263,7 @@ void Gestionnaire::_initialisation()
     article.close();
 }
 
+//function affMangas() for show mangas
 void Gestionnaire::_affMangas()
 {
     std::string affiche, ligne;
@@ -290,6 +294,7 @@ void Gestionnaire::_affMangas()
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+//function affMangas() for show comics
 void Gestionnaire::_affComics()
 {
     std::string affiche, ligne;
@@ -320,6 +325,7 @@ void Gestionnaire::_affComics()
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+//function affMangas() for show novels
 void Gestionnaire::_affRomans()
 {
     std::string affiche, ligne;
@@ -350,6 +356,7 @@ void Gestionnaire::_affRomans()
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+//function affMangas() for show articles
 void Gestionnaire::_affArticles()
 {
     std::string affiche, ligne;
@@ -380,6 +387,7 @@ void Gestionnaire::_affArticles()
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+///function rechercher() for searches
 void Gestionnaire::rechercher()
 {
     std::string name, categ;
@@ -464,6 +472,7 @@ void Gestionnaire::rechercher()
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+///function exporter() for export the lists of documents in html version
 void Gestionnaire::exporter()
 {
     std::string ligne;
@@ -519,6 +528,7 @@ void Gestionnaire::exporter()
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+///function supprimer() for delete a document
 void Gestionnaire::supprimer()
 {
     std::string name, file;
@@ -542,6 +552,7 @@ void Gestionnaire::supprimer()
    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+///function majListe(string) for delete a string of the list of a document's type
 void Gestionnaire::_majListe(std::string& n)
 {
     unsigned int i = 0;
@@ -603,6 +614,7 @@ void Gestionnaire::_majListe(std::string& n)
     _sauvegarde();
 }
 
+///function _sauvegarde() (whitch is private) for saving the lists of documents
 void Gestionnaire::_sauvegarde()
 {
     unsigned int i;
@@ -668,6 +680,7 @@ void Gestionnaire::_sauvegarde()
     }
 }
 
+///function menuModif() for the choice of a document's modification
 void Gestionnaire::menuModif()
 {
     Manga myManga;
@@ -746,6 +759,7 @@ void Gestionnaire::menuModif()
     }
 }
 
+///function menuTrier() for the choice of the sort's type
 void Gestionnaire::menuTrier()
 {
     int choix = -1;
@@ -792,6 +806,7 @@ void Gestionnaire::menuTrier()
     }
 }
 
+///function _sortTitle() (whitch is private) for doing a sort by titles
 void Gestionnaire::_sortTitle()
 {
     int i, j;
@@ -864,6 +879,7 @@ void Gestionnaire::_sortTitle()
     }
 }
 
+///function _sortAuthors() for the sort by authors
 void Gestionnaire::_sortAuthors()
 {
     int i, j;
@@ -951,6 +967,7 @@ void Gestionnaire::_sortAuthors()
     }
 }
 
+///function _initAuthors(char) for initiate a vector of authors, the char's parameter defines the autors of a document's type
 std::vector<std::string> Gestionnaire::_initAuthors(char nom)
 {
     std::ifstream fichier;
