@@ -8,6 +8,7 @@ Comic::~Comic()
 {
 }
 
+///for adding a new Comic
 std::string Comic::ajouter()
 {
     std::string file;
@@ -17,6 +18,7 @@ std::string Comic::ajouter()
     file += _title;
     file += ".txt";
 
+    ///open the file, and purge it if he is not empty
     std::ofstream Ajout(file.c_str());
     if (Ajout)
     {
@@ -39,6 +41,7 @@ std::string Comic::ajouter()
     return _title;
 }
 
+///for modifying a Comic
 std::string Comic::modifier()
 {
     int i=0;
@@ -54,6 +57,7 @@ std::string Comic::modifier()
     file += name;
     file += ".txt";
 
+    ///for reading the last values
     std::ifstream lecture(file.c_str());
     if (lecture)
     {
@@ -61,9 +65,11 @@ std::string Comic::modifier()
         lecture >> buffer;        lecture >> _author;
         lecture >> buffer;        lecture >> _editor;
 
+        ///for puting the cursor at the beginning of the file
         lecture.seekg(0, std::ios::beg);
         while (i < 3)
         {
+            ///for asking if we modify a value
             getline(lecture, buffer);
             do
             {
@@ -71,6 +77,7 @@ std::string Comic::modifier()
                 std::cout<< "Voulez-vous modifier cette ligne? [y/n]" <<std::endl;
                 std::cin>>choix;
             } while( (choix != 'y') && (choix != 'Y') && (choix != 'n') && (choix != 'N') );
+            ///if modify, ask the new value
             if ( (choix == 'y') || (choix == 'Y') )
             {
                 std::cout<< "Veuillez entrer la nouvelle donnée:" <<std::endl;
@@ -87,6 +94,7 @@ std::string Comic::modifier()
             }
             i++;
         }
+        ///call of ajouter(); for reducing the code
         ajouter();
     }
     else
@@ -101,6 +109,7 @@ std::string Comic::modifier()
     return name;
 }
 
+///for initialising a Comic
 void Comic::initialisation()
 {
     std::cout<<"Veuillez entrer le titre du comic (Espaces Non Admis) : ";

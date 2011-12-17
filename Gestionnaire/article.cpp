@@ -8,16 +8,19 @@ Article::~ Article()
 {
 }
 
+///for having theme who is protected
 std::string Article::getTheme()
 {
     return _theme;
 }
 
+///for having theme who is protected
 std::string Article::getDateParution()
 {
     return _dateParution;
 }
 
+///for adding a new Article
 std::string Article::ajouter()
 {
     std::string file;
@@ -28,6 +31,7 @@ std::string Article::ajouter()
     file += _title;
     file += ".txt";
 
+    ///open the file, and purge it if he is not empty
     std::ofstream Ajout(file.c_str(), std::ios::out | std::ios::trunc);
     if (Ajout)
     {
@@ -52,6 +56,7 @@ std::string Article::ajouter()
     return _title;
 }
 
+///for modifying an Article
 std::string Article::modifier()
 {
     int i=0;
@@ -67,6 +72,7 @@ std::string Article::modifier()
     file += name;
     file += ".txt";
 
+    ///for reading the last values
     std::ifstream lecture(file.c_str());
     if (lecture)
     {
@@ -76,9 +82,11 @@ std::string Article::modifier()
         lecture >> buffer;        lecture >> buffer;
         lecture >> buffer;        lecture >> _dateParution;
 
+        ///for puting the cursor at the beginning of the file
         lecture.seekg(0, std::ios::beg);
         while (i<4)
         {
+            ///for asking if we modify a value
             getline(lecture, buffer);
             do
             {
@@ -86,6 +94,7 @@ std::string Article::modifier()
                 std::cout<< "Voulez-vous modifier cette ligne? [y/n]" <<std::endl;
                 std::cin>>choix;
             } while( (choix != 'y') && (choix != 'Y') && (choix != 'n') && (choix != 'N') );
+            ///if modify, ask the new value
             if ( (choix == 'y') || (choix == 'Y') )
             {
                 std::cout<< "Veuillez entrer la nouvelle donnée:" <<std::endl;
@@ -104,6 +113,7 @@ std::string Article::modifier()
             }
             i++;
         }
+        ///call of ajouter(); for reducing the code
         ajouter();
     }
     else
@@ -117,6 +127,7 @@ std::string Article::modifier()
     return name;
 }
 
+///for initialising an Article
 void Article::initialisation()
 {
     std::cout<<"Veuillez entrer le titre de l'article (Espaces Non Admis) : ";

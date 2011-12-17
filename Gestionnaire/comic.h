@@ -2,6 +2,8 @@
 #define COMIC_H
 #include "bd.h"
 
+///class Comic, inheriting of class BD.
+
 class Comic : public BD
 {
 public:
