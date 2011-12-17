@@ -48,46 +48,56 @@ std::string Manga::ajouter()
 
 void Manga::modifier()
 {
-    std::string name, author, editor, type,  file, file2;
+    int i=0;
+    char choix;
+    std::string name, file, suppr,  buffer;
 
     std::cout<<"Modification du manga:"<<std::endl;
     std::cout<<"Veuillez entrer le nom du manga a modifier:";
     std::cin>>name;
     std::cout<<std::endl;
 
-    std::cout<<"Veuillez entrer le nom du manga:";
-    std::cin>>name;
-    std::cout<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'auteur:";
-    std::cin>>author;
-    std::cout<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'editeur:";
-    std::cin>>editor;
-    std::cout<<std::endl;
-    std::cout<<"Veuillez entrer le type du manga:";
-    std::cin>>type;
-    std::cout<<std::endl;
-
-    file = " rm ../Elements/";
+    file = "../Elements/";
     file += name;
     file += ".txt";
 
-    file2 = "../Elements/";
-    file2 += name;
-    file2 += ".txt";
-
-    system(file.c_str());
-    std::ofstream Ajout(file2.c_str());
-    if (Ajout)
+    std::ifstream lecture(file.c_str());
+    if (lecture)
     {
-        Ajout << "Titre: ";
-        Ajout << name  <<std::endl;
-        Ajout << "Auteur: ";
-        Ajout << author <<std::endl;
-        Ajout << "Editeur: ";
-        Ajout << editor <<std::endl;
-        Ajout << "Type: ";
-        Ajout << type <<std::endl;
+        lecture >> buffer;        lecture >> _title;
+        lecture >> buffer;        lecture >> _author;
+        lecture >> buffer;        lecture >> _editor;
+        lecture >> buffer;        lecture >> _type;
+        lecture.seekg(0, std::ios::beg);
+
+        while (i<4)
+        {
+            getline(lecture, buffer);
+            do
+            {
+                std::cout<< buffer <<std::endl;
+                std::cout<< "Voulez-vous modifier cette ligne? [y/n]" <<std::endl;
+                std::cin>>choix;
+            } while( (choix != 'y') && (choix != 'Y') && (choix != 'n') && (choix != 'N') );
+            if ( (choix == 'y') || (choix == 'Y') )
+            {
+                std::cout<< "Veuillez entrer la nouvelle donnée:" <<std::endl;
+                std::cin>>buffer;
+                suppr = "rm ";
+                suppr += file;
+                system(suppr.c_str());
+                if (i == 0)
+                    _title = buffer;
+                if (i == 1)
+                    _author = buffer;
+                if (i == 2)
+                    _editor = buffer;
+                if (i == 3)
+                    _type = buffer;
+            }
+            i++;
+        }
+        ajouter();
     }
     else
     {
