@@ -45,7 +45,7 @@ std::string Roman::ajouter()
     return _title;
 }
 
-void Roman::modifier()
+std::string Roman::modifier()
 {
     int i=0;
     char choix;
@@ -103,6 +103,8 @@ void Roman::modifier()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+
+    return name;
 }
 
 void Roman::initialisation()

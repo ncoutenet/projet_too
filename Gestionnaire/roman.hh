@@ -9,7 +9,7 @@ public:
     ~Roman();
     std::string getEditor();
     std::string ajouter();
-    void modifier();
+    std::string modifier();
     void initialisation();
 protected:
     std::string _editor;
