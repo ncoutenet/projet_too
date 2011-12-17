@@ -756,4 +756,5 @@ void Gestionnaire::menuModif()
             std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         }
+    }
 }
