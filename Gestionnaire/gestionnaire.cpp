@@ -386,30 +386,92 @@ void Gestionnaire::_affArticles()
 
 void Gestionnaire::rechercher()
 {
-    std::string name, file, ligne;
+    std::string name, categ;
+    bool trouve = false;
+    unsigned int i = 0;
 
-    std::cout<<"Affichage d'un element:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element:";
+    std::cout<<"Recherche d'un document:"<<std::endl;
+    std::cout<<"Veuilleez entrer le titre du document à rechercher : ";
     std::cin>>name;
     std::cout<<std::endl;
 
-    file = "../Elements/";
-    file += name;
-    file += ".txt";
-
-    std::ifstream Affiche(file.c_str());
-    if(Affiche)
+    while ( (i < _listeMangas.size()) && (!trouve) )
     {
-        while(getline(Affiche, ligne))    //Tant qu'on n'est pas a la fin, on lit
+        if (_listeMangas.at(i) == name)
         {
-            std::cout<<ligne<<std::endl;
+            trouve = true;
+            categ = "Manga";
         }
+        else
+        {
+            i++;
+        }
+    }
 
+    if (!trouve)
+    {
+        i = 0;
+    }
+
+    while ( (i < _listeComics.size()) && (!trouve) )
+    {
+        if (_listeComics.at(i) == name)
+        {
+            trouve = true;
+            categ = "Comic";
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    if (!trouve)
+    {
+        i = 0;
+    }
+
+    while ( (i < _listeRomans.size()) && (!trouve) )
+    {
+        if (_listeRomans.at(i) == name)
+        {
+            trouve = true;
+            categ = "Roman";
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    if (!trouve)
+    {
+        i = 0;
+    }
+
+    while ( (i < _listeArticles.size()) && (!trouve) )
+    {
+        if (_listeArticles.at(i) == name)
+        {
+            trouve = true;
+            categ = "Article";
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    if (trouve)
+    {
+        std::cout<<"Le document intitulé "<<name<<" a été trouvé!"<<std::endl;
+        std::cout<<"C'est un "<<categ<<"."<<std::endl;
     }
     else
     {
-        std::cout<<"ERREUR: Impossible d'afficher le fichier."<<std::endl;
+        std::cout<<"Le document intitulé "<<name<<" est introuvable!"<<std::endl;
     }
+
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
