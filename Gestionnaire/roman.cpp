@@ -95,7 +95,7 @@ void Roman::modifier()
 
 void Roman::initialisation()
 {
-    std::cout<<"Veuillez entrer le titre du roman : ";
+    std::cout<<"Veuillez entrer le titre du roman (Espaces Non Admis) : ";
     std::cin>>_title;
     std::cout<<std::endl;
 

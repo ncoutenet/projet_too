@@ -89,7 +89,7 @@ void Comic::modifier()
 
 void Comic::initialisation()
 {
-    std::cout<<"Veuillez entrer le titre du comic : ";
+    std::cout<<"Veuillez entrer le titre du comic (Espaces Non Admis) : ";
     std::cin>>_title;
     std::cout<<std::endl;
 

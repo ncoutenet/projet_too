@@ -107,15 +107,15 @@ void Article::modifier()
 
 void Article::initialisation()
 {
-    std::cout<<"Veuillez entrer le titre de l'article' : ";
+    std::cout<<"Veuillez entrer le titre de l'article (Espaces Non Admis) : ";
     std::cin>>_title;
     std::cout<<std::endl;
 
-    std::cout<<"Veuillez entrer l'auteur de l'article' : ";
+    std::cout<<"Veuillez entrer l'auteur de l'article : ";
     std::cin>>_author;
     std::cout<<std::endl;
 
-    std::cout<<"Veuillez entrer le theme de l'article' : ";
+    std::cout<<"Veuillez entrer le theme de l'article : ";
     std::cin>>_theme;
     std::cout<<std::endl;
 
