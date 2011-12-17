@@ -52,7 +52,7 @@ std::string Article::ajouter()
     return _title;
 }
 
-void Article::modifier()
+std::string Article::modifier()
 {
     int i=0;
     char choix;
@@ -114,6 +114,7 @@ void Article::modifier()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+    return name;
 }
 
 void Article::initialisation()

@@ -9,7 +9,7 @@ public:
     ~Manga();
     std::string getType();    
     std::string ajouter();
-    void modifier();
+    std::string modifier();
     void initialisation();
 private:
     std::string _type;

@@ -8,7 +8,7 @@ public:
     Comic();
     ~Comic();
     std::string ajouter();
-    void modifier();
+    std::string modifier();
     void initialisation();
 private:
 };
