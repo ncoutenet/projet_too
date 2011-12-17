@@ -9,7 +9,7 @@ public:
     ~Article();
     std::string getTheme();
     std::string getDateParution();
-    void ajouter();
+    std::string ajouter();
     void modifier();
     void initialisation();
 protected:

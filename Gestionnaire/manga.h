@@ -8,7 +8,7 @@ public:
     Manga();
     ~Manga();
     std::string getType();    
-    void ajouter();
+    std::string ajouter();
     void modifier();
     void initialisation();
 private:

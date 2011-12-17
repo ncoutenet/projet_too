@@ -18,7 +18,7 @@ std::string Article::getDateParution()
     return _dateParution;
 }
 
-void Article::ajouter()
+std::string Article::ajouter()
 {
     std::string file;
 
@@ -48,6 +48,8 @@ void Article::ajouter()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+
+    return _title;
 }
 
 void Article::modifier()

@@ -13,7 +13,7 @@ std::string Manga::getType()
     return _type;
 }
 
-void Manga::ajouter()
+std::string Manga::ajouter()
 {
     std::string file;
     std::cout<<"Ajout du manga:"<<std::endl;
@@ -42,6 +42,8 @@ void Manga::ajouter()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+
+    return _title;
 }
 
 void Manga::modifier()
