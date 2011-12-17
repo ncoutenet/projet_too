@@ -8,19 +8,19 @@ Article::~ Article()
 {
 }
 
-///for having theme who is protected
+///function getTheme() for having theme who is protected
 std::string Article::getTheme()
 {
     return _theme;
 }
 
-///for having theme who is protected
+///function getDateParution() for having theme who is protected
 std::string Article::getDateParution()
 {
     return _dateParution;
 }
 
-///for adding a new Article
+///function ajouter() for adding a new Article
 std::string Article::ajouter()
 {
     std::string file;
@@ -56,7 +56,7 @@ std::string Article::ajouter()
     return _title;
 }
 
-///for modifying an Article
+///function modifier() for modifying an Article
 std::string Article::modifier()
 {
     int i=0;
@@ -128,7 +128,7 @@ std::string Article::modifier()
     return name;
 }
 
-///for initialising an Article
+///function initialisation() for initialising an Article
 void Article::initialisation()
 {
     std::cout<<"Veuillez entrer le titre de l'article (Espaces Non Admis) : ";

@@ -8,13 +8,13 @@ Roman::~ Roman()
 {
 }
 
-///for having theme who is protected
+///function getEditor() for having theme who is protected
 std::string Roman::getEditor()
 {
     return _editor;
 }
 
-///for adding a new Roman
+///function ajouter() for adding a new Roman
 std::string Roman::ajouter()
 {
     std::string file;
@@ -48,7 +48,7 @@ std::string Roman::ajouter()
     return _title;
 }
 
-///for modifying a Roman
+///function modifier() for modifying a Roman
 std::string Roman::modifier()
 {
     int i=0;
@@ -116,7 +116,7 @@ std::string Roman::modifier()
     return name;
 }
 
-///for initialising a Roman
+///function initialisation() for initialising a Roman
 void Roman::initialisation()
 {
     std::cout<<"Veuillez entrer le titre du roman (Espaces Non Admis) : ";

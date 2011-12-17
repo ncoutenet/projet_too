@@ -8,7 +8,7 @@ Comic::~Comic()
 {
 }
 
-///for adding a new Comic
+///function ajouter() for adding a new Comic
 std::string Comic::ajouter()
 {
     std::string file;
@@ -41,7 +41,7 @@ std::string Comic::ajouter()
     return _title;
 }
 
-///for modifying a Comic
+///function modifier() for modifying a Comic
 std::string Comic::modifier()
 {
     int i=0;
@@ -109,7 +109,7 @@ std::string Comic::modifier()
     return name;
 }
 
-///for initialising a Comic
+///function initialisation() for initialising a Comic
 void Comic::initialisation()
 {
     std::cout<<"Veuillez entrer le titre du comic (Espaces Non Admis) : ";
