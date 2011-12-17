@@ -13,7 +13,7 @@ std::string Roman::getEditor()
     return _editor;
 }
 
-void Roman::ajouter()
+std::string Roman::ajouter()
 {
     std::string file;
 
@@ -41,6 +41,8 @@ void Roman::ajouter()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+
+    return _title;
 }
 
 void Roman::modifier()
