@@ -76,6 +76,7 @@ void Article::modifier()
         lecture >> buffer;        lecture >> buffer;
         lecture >> buffer;        lecture >> _dateParution;
 
+        lecture.seekg(0, std::ios::beg);
         while (i<4)
         {
             getline(lecture, buffer);

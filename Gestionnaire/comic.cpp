@@ -61,6 +61,7 @@ void Comic::modifier()
         lecture >> buffer;        lecture >> _author;
         lecture >> buffer;        lecture >> _editor;
 
+        lecture.seekg(0, std::ios::beg);
         while (i < 3)
         {
             getline(lecture, buffer);
