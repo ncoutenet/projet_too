@@ -2,6 +2,8 @@
 #define MANGA_H
 #include "bd.h"
 
+///class Manga, inheriting of class BD.
+
 class Manga : public BD
 {
 public:

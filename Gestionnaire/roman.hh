@@ -2,6 +2,8 @@
 #define ROMAN_HH
 #include"livre.h"
 
+///class Roman, inheriting of class Livre.
+
 class Roman : public Livre
 {
 public:

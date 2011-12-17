@@ -2,6 +2,8 @@
 #define BD_H
 #include "livre.h"
 
+///class BD, inheriting of class Livre.
+
 class BD : public Livre
 {
 public:
