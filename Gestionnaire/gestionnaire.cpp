@@ -758,3 +758,59 @@ void Gestionnaire::menuModif()
         }
     }
 }
+
+void Gestionnaire::menuTrier()
+{
+    int choix = -1;
+
+    enum sortAction{
+        Retour,
+        Title,
+        Author
+    };
+
+    while (choix != 0)
+    {
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-                   TRI                    -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"-1)Tri par titre                           -"<<std::endl;
+        std::cout<<"-2)Tri par auteur                          -"<<std::endl;
+        std::cout<<"-0)Retour                                  -"<<std::endl;
+        std::cout<<"--------------------------------------------"<<std::endl;
+        std::cout<<"Veuillez entrer votre choix : ";
+        std::cin>>choix;
+        std::cout<<std::endl;
+
+        switch(choix)
+        {
+            case Retour:
+                system("clear");
+                break;
+            case Title:
+                system("clear");
+                _sortTitle();
+                break;
+            case Author:
+                system("clear");
+                _sortAuthors();
+                break;
+            default:
+                std::cout<<"Erreur de saisie!!!"<<std::endl;
+                std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
+                getchar();
+                std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+                break;
+        }
+    }
+}
+
+void Gestionnaire::_sortTitle()
+{
+
+}
+
+void Gestionnaire::_sortAuthors()
+{
+
+}

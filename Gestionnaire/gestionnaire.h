@@ -16,6 +16,7 @@ public:
     void menuModif();
     void supprimer();
     void afficher();
+    void menuTrier();
     void exporter();
     void rechercher();
 private:
@@ -26,6 +27,8 @@ private:
     void _affRomans();
     void _affArticles();
     void _majListe(std::string&);
+    void _sortTitle();
+    void _sortAuthors();
     std::vector<std::string> _listeMangas;
     std::vector<std::string> _listeComics;
     std::vector<std::string> _listeRomans;
