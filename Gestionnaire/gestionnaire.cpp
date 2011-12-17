@@ -481,9 +481,7 @@ void Gestionnaire::rechercher()
 void Gestionnaire::exporter()
 {
     std::string ligne;
-
     std::cout<<"Export en html:"<<std::endl;
-
     std::ofstream Ajout("../Pages/Liste_des_documents.html");
     if (Ajout)
     {
