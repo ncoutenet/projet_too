@@ -480,52 +480,54 @@ void Gestionnaire::rechercher()
 
 void Gestionnaire::exporter()
 {
-    std::string name, file, ligne, page;
+    std::string ligne;
 
-    std::cout<<"Export d'un element en html:"<<std::endl;
-    std::cout<<"Veuillez entrer le nom de l'element:";
-    std::cin>>name;
-    std::cout<<std::endl;
+    std::cout<<"Export en html:"<<std::endl;
 
-    file = "../Elements/";
-    file += name;
-    file += ".txt";
-
-    page = "../Pages/";
-    page += name;
-    page += ".html";
-
-    std::ifstream Expor(file.c_str());
-    if(Expor)
+    std::ofstream Ajout("../Pages/Liste_des_documents.html");
+    if (Ajout)
     {
-        std::ofstream Ajout(page.c_str());
-        if (Ajout)
+        Ajout << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"" <<std::endl;
+        Ajout << "    \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">" <<std::endl;
+        Ajout << "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\">" <<std::endl;
+        Ajout << "<head>" <<std::endl;
+        Ajout << "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />" <<std::endl;
+        Ajout << "<meta name=\"description\" content=\"Objet\" />" <<std::endl;
+        Ajout << "<meta name=\"keywords\" content=\"xhtml,internet,too\" />" <<std::endl;
+        Ajout << "<meta name=\"author\" content=\"none\" />" <<std::endl;
+        Ajout << "<title>Liste des éléments:</title>" <<std::endl;
+        Ajout << "</head>" <<std::endl;
+        Ajout << "<body>" <<std::endl;
+        Ajout << "<h1> Mangas: <br/>" <<std::endl;
+        std::ifstream manga("../Sources/listMangas.txt");
+        while(getline(manga, ligne))
         {
-            Ajout << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"" <<std::endl;
-            Ajout << "    \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">" <<std::endl;
-            Ajout << "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\">" <<std::endl;
-            Ajout << "<head>" <<std::endl;
-            Ajout << "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />" <<std::endl;
-            Ajout << "<meta name=\"description\" content=\"Objet\" />" <<std::endl;
-            Ajout << "<meta name=\"keywords\" content=\"xhtml,internet,too\" />" <<std::endl;
-            Ajout << "<meta name=\"author\" content=\"none\" />" <<std::endl;
-            Ajout << "<title>";
-            Ajout << name <<std::endl;
-            Ajout << "</title>" <<std::endl;
-            Ajout << "</head>" <<std::endl;
-            Ajout << "<body>" <<std::endl;
-            while(getline(Expor, ligne))
-            {
-                Ajout << ligne <<std::endl;
-                Ajout << "<br/>" <<std::endl;
-            }
-            Ajout << "</body>" <<std::endl;
-            Ajout << "</html>" <<std::endl;
+            Ajout << ligne <<std::endl;
+            Ajout << "<br/>" <<std::endl;
         }
-    }
-    else
-    {
-        std::cout<<"ERREUR: Impossible d'exporter le fichier en html."<<std::endl;
+        Ajout << "<h1> Comics: <br/>" <<std::endl;
+        std::ifstream comic("../Sources/listComics.txt");
+        while(getline(comic, ligne))
+        {
+            Ajout << ligne <<std::endl;
+            Ajout << "<br/>" <<std::endl;
+        }
+        Ajout << "<h1> Romans: <br/>" <<std::endl;
+        std::ifstream roman("../Sources/listRomans.txt");
+        while(getline(roman, ligne))
+        {
+            Ajout << ligne <<std::endl;
+            Ajout << "<br/>" <<std::endl;
+        }
+        Ajout << "<h1> Articles: <br/>" <<std::endl;
+        std::ifstream article("../Sources/listArticles.txt");
+        while(getline(article, ligne))
+        {
+            Ajout << ligne <<std::endl;
+            Ajout << "<br/>" <<std::endl;
+        }
+        Ajout << "</body>" <<std::endl;
+        Ajout << "</html>" <<std::endl;
     }
 
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
