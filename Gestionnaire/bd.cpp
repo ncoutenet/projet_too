@@ -8,7 +8,7 @@ BD::~BD()
 {
 }
 
-///for having the Editor who is protected
+///function getEditor() for having the Editor who is protected
 std::string BD::getEditor()
 {
     return _editor;

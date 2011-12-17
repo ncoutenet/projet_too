@@ -8,13 +8,13 @@ Manga::~Manga()
 {
 }
 
-///for having type who is protected
+///function getType() for having type who is protected
 std::string Manga::getType()
 {
     return _type;
 }
 
-///for adding a new Manga
+///function ajouter() for adding a new Manga
 std::string Manga::ajouter()
 {
     std::string file;
@@ -49,7 +49,7 @@ std::string Manga::ajouter()
     return _title;
 }
 
-///for modifying a Manga
+///function modifier() for modifying a Manga
 std::string Manga::modifier()
 {
     int i=0;
@@ -120,7 +120,7 @@ std::string Manga::modifier()
     return name;
 }
 
-///for initialising a Manga
+///function initialisation() for initialising a Manga
 void Manga::initialisation()
 {
     std::cout<<"Veuillez entrer le titre du manga (Espaces Non Admis) : ";
