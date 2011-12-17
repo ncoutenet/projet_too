@@ -101,7 +101,7 @@ void Manga::modifier()
 
 void Manga::initialisation()
 {
-    std::cout<<"Veuillez entrer le titre du manga : ";
+    std::cout<<"Veuillez entrer le titre du manga (Espaces Non Admis) : ";
     std::cin>>_title;
     std::cout<<std::endl;
 
