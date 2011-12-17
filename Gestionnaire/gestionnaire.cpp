@@ -120,28 +120,28 @@ void Gestionnaire::menuAjouter()
             break;
         case manga:
             myManga.initialisation();
-            myManga.ajouter();
+            _listeMangas.push_back(myManga.ajouter());
             std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
             getchar();
             std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         case comic:
             myComic.initialisation();
-            myComic.ajouter();
+            _listeComics.push_back(myComic.ajouter());
             std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
             getchar();
             std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         case roman:
             myRoman.initialisation();
-            myRoman.ajouter();
+            _listeRomans.push_back(myRoman.ajouter());
             std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
             getchar();
             std::cin.ignore(std::numeric_limits<int>::max(), '\n');
             break;
         case article:
             myArticle.initialisation();
-            myArticle.ajouter();
+            _listeArticles.push_back(myArticle.ajouter());
             std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
             getchar();
             std::cin.ignore(std::numeric_limits<int>::max(), '\n');

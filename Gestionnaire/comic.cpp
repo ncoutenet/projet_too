@@ -8,7 +8,7 @@ Comic::~Comic()
 {
 }
 
-void Comic::ajouter()
+std::string Comic::ajouter()
 {
     std::string file;
     std::cout<<"Ajout du Comic:"<<std::endl;
@@ -35,6 +35,8 @@ void Comic::ajouter()
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+
+    return _title;
 }
 
 void Comic::modifier()

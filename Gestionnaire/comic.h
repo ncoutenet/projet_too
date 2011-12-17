@@ -7,7 +7,7 @@ class Comic : public BD
 public:
     Comic();
     ~Comic();
-    void ajouter();
+    std::string ajouter();
     void modifier();
     void initialisation();
 private:
