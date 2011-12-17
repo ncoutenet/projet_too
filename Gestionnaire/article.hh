@@ -10,7 +10,7 @@ public:
     std::string getTheme();
     std::string getDateParution();
     std::string ajouter();
-    void modifier();
+    std::string modifier();
     void initialisation();
 protected:
     std::string _theme;

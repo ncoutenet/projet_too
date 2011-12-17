@@ -39,7 +39,7 @@ std::string Comic::ajouter()
     return _title;
 }
 
-void Comic::modifier()
+std::string Comic::modifier()
 {
     int i=0;
     char choix;
@@ -94,10 +94,11 @@ void Comic::modifier()
         std::cout<<"ERREUR: Impossible de modifier le fichier."<<std::endl;
     }
 
-
     std::cout<<"Veuillez appuyer sur enter pour continuer."<<std::endl;
     getchar();
     std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+
+    return name;
 }
 
 void Comic::initialisation()
