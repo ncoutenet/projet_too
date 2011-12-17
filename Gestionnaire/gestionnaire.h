@@ -29,6 +29,7 @@ private:
     void _majListe(std::string&);
     void _sortTitle();
     void _sortAuthors();
+    std::vector<std::string> _initAuthors(char);
     std::vector<std::string> _listeMangas;
     std::vector<std::string> _listeComics;
     std::vector<std::string> _listeRomans;

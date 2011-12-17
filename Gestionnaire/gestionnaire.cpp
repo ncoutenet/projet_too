@@ -807,10 +807,233 @@ void Gestionnaire::menuTrier()
 
 void Gestionnaire::_sortTitle()
 {
+    int i, j;
+    int nbmax = _listeMangas.size(), nbtri, pmin;
+    nbtri = nbmax;
 
+    for (i = 0; i < nbtri; i++)
+    {
+        pmin = 0;
+        for (j=1; j < nbmax; j++)
+        {
+            if (_listeMangas.at(j) < _listeMangas.at(pmin))
+            {
+                pmin = j;
+            }
+        }
+        _listeMangas.push_back(_listeMangas.at(pmin));
+        _listeMangas.erase(_listeMangas.begin()+pmin);
+    }
+
+    nbmax = _listeComics.size();
+    nbtri = nbmax;
+
+    for (i = 0; i < nbtri; i++)
+    {
+        pmin = 0;
+        for (j=1; j < nbmax; j++)
+        {
+            if (_listeComics.at(j) < _listeComics.at(pmin))
+            {
+                pmin = j;
+            }
+        }
+        _listeComics.push_back(_listeComics.at(pmin));
+        _listeComics.erase(_listeComics.begin()+pmin);
+    }
+
+    nbmax = _listeRomans.size();
+    nbtri = nbmax;
+
+    for (i = 0; i < nbtri; i++)
+    {
+        pmin = 0;
+        for (j=1; j < nbmax; j++)
+        {
+            if (_listeRomans.at(j) < _listeRomans.at(pmin))
+            {
+                pmin = j;
+            }
+        }
+        _listeRomans.push_back(_listeRomans.at(pmin));
+        _listeRomans.erase(_listeRomans.begin()+pmin);
+    }
+
+    nbmax = _listeArticles.size();
+    nbtri = nbmax;
+
+    for (i = 0; i < nbtri; i++)
+    {
+        pmin = 0;
+        for (j=1; j < nbmax; j++)
+        {
+            if (_listeArticles.at(j) < _listeArticles.at(pmin))
+            {
+                pmin = j;
+            }
+        }
+        _listeArticles.push_back(_listeArticles.at(pmin));
+        _listeArticles.erase(_listeArticles.begin()+pmin);
+    }
 }
 
 void Gestionnaire::_sortAuthors()
 {
+    int i, j;
+    int nbmax, nbtri, pmin;
+    std::vector<std::string> autMang, autCom, autRom, autArt;
 
+    autMang = _initAuthors('M');
+    autCom = _initAuthors('C');
+    autRom = _initAuthors('R');
+    autArt = _initAuthors('A');
+
+    nbmax = autMang.size();
+    nbtri = nbmax;
+    for (i = 0; i < nbtri; i++)
+    {
+        pmin = 0;
+        for (j=1; j < nbmax; j++)
+        {
+            if (autMang.at(j) < autMang.at(pmin))
+            {
+                pmin = j;
+            }
+        }
+        _listeMangas.push_back(_listeMangas.at(pmin));
+        _listeMangas.erase(_listeMangas.begin()+pmin);
+        autMang.push_back(autMang.at(pmin));
+        autMang.erase(autMang.begin()+pmin);
+    }
+
+    nbmax = autCom.size();
+    nbtri = nbmax;
+
+    for (i = 0; i < nbtri; i++)
+    {
+        pmin = 0;
+        for (j=1; j < nbmax; j++)
+        {
+            if (autCom.at(j) < autCom.at(pmin))
+            {
+                pmin = j;
+            }
+        }
+        _listeComics.push_back(_listeComics.at(pmin));
+        _listeComics.erase(_listeComics.begin()+pmin);
+        autCom.push_back(autCom.at(pmin));
+        autCom.erase(autCom.begin()+pmin);
+    }
+
+    nbmax = autRom.size();
+    nbtri = nbmax;
+
+    for (i = 0; i < nbtri; i++)
+    {
+        pmin = 0;
+        for (j=1; j < nbmax; j++)
+        {
+            if (autRom.at(j) < autRom.at(pmin))
+            {
+                pmin = j;
+            }
+        }
+        _listeRomans.push_back(_listeRomans.at(pmin));
+        _listeRomans.erase(_listeRomans.begin()+pmin);
+        autRom.push_back(autRom.at(pmin));
+        autRom.erase(autRom.begin()+pmin);
+    }
+
+    nbmax = autArt.size();
+    nbtri = nbmax;
+
+    for (i = 0; i < nbtri; i++)
+    {
+        pmin = 0;
+        for (j=1; j < nbmax; j++)
+        {
+            if (autArt.at(j) < autArt.at(pmin))
+            {
+                pmin = j;
+            }
+        }
+        _listeArticles.push_back(_listeArticles.at(pmin));
+        _listeArticles.erase(_listeArticles.begin()+pmin);
+        autArt.push_back(autArt.at(pmin));
+        autArt.erase(autArt.begin()+pmin);
+    }
+}
+
+std::vector<std::string> Gestionnaire::_initAuthors(char nom)
+{
+    std::ifstream fichier;
+    std::string buffer, file;
+    std::vector<std::string> vect;
+    unsigned int i;
+
+    if (nom == 'M')
+    {
+        for (i=0; i < _listeMangas.size(); i++)
+        {
+            file = "../Elements/";
+            file += _listeMangas.at(i);
+            file += ".txt";
+            fichier.open(file.c_str());
+            fichier >> buffer;
+            fichier >> buffer;
+            fichier >> buffer;
+            fichier >> buffer;
+            vect.push_back(buffer);
+
+        }
+    }
+    else if (nom == 'C')
+    {
+        for (i=0; i < _listeComics.size(); i++)
+        {
+            file = "../Elements/";
+            file += _listeComics.at(i);
+            file += ".txt";
+            fichier.open(file.c_str());
+            fichier >> buffer;
+            fichier >> buffer;
+            fichier >> buffer;
+            fichier >> buffer;
+            vect.push_back(buffer);
+
+        }
+    }
+    else if (nom == 'R')
+    {
+        for (i=0; i < _listeRomans.size(); i++)
+        {
+            file = "../Elements/";
+            file += _listeRomans.at(i);
+            file += ".txt";
+            fichier.open(file.c_str());
+            fichier >> buffer;
+            fichier >> buffer;
+            fichier >> buffer;
+            fichier >> buffer;
+            vect.push_back(buffer);
+
+        }
+    }
+    else
+    {
+        for (i=0; i < _listeArticles.size(); i++)
+        {
+            file = "../Elements/";
+            file += _listeArticles.at(i);
+            file += ".txt";
+            fichier.open(file.c_str());
+            fichier >> buffer;
+            fichier >> buffer;
+            fichier >> buffer;
+            fichier >> buffer;
+            vect.push_back(buffer);
+
+        }
+    }
+    return vect;
 }
